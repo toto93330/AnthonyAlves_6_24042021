@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegisterController!
+{% endblock %}
+
+{% block content %}
+
+	<section class="login py-5 mx-auto" data-aos="flip-left">
+
+		<div>
+			<h3 class="text-center pb-5">Register</h3>
+		</div>
+		<div class="py-3 px-4 mx-4 bg-light">
+
+			{{ form_start(form) }}
+
+			<div class="py-3 text-center">{{ form_label(form.firstname) }}</div>
+			{{ form_widget(form.firstname) }}
+
+			<div class="py-3 text-center">{{ form_label(form.lastname) }}</div>
+			{{ form_widget(form.lastname) }}
+
+			<div class="py-3 text-center">{{ form_label(form.avatar) }}</div>
+			<div class="py-3 d-none">{{ form_widget(form.avatar) }}</div>
+			<div class="text-center">
+				<label for="register_avatar" class="btn btn-primary">Upload File</label>
+				<br><small>(.jpg, .jpeg, .gif, .png).</small>
+			</div>
+
+			<div class="py-3 text-center">{{ form_label(form.email) }}</div>
+			{{ form_widget(form.email) }}
+
+			<div class="py-3 text-center">{{ form_label(form.password.pass, "Password") }}</div>
+			{{ form_widget(form.password.pass) }}
+			<div class="py-3 text-center">{{ form_label(form.password.confirm, "Confirm your password") }}</div>
+			{{ form_widget(form.password.confirm) }}
+			<div class="py-3 text-center"><input class="btn btn-primary" type="submit" value="Submit"></div>
+			{{ form_end(form) }}
+
+		</div>
+	</section>
+
+</section>{% endblock %}

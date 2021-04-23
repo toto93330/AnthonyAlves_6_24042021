@@ -5,7 +5,7 @@
 
     <!-- HERO HEADER -->
     <div class="px-4 py-lg-5 py-md-5 py-3 text-center header-hero border-bottom"
-        style="background-image: url('ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg'); background-size: cover;">
+        style="background-image: url('{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}'); background-size: cover;">
 
         <h1 class="display-5 fw-bold py-5 text-light"
             style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:3em">The snow
@@ -19,7 +19,7 @@
 
             <div class="col" data-aos="flip-left">
                 <div class="card shadow-sm">
-                    <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick">
+                    <img class="card-img-top home" src="{{ asset('assets/img/stalefish.jpg') }}" alt="Trick">
                     <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
                         <div class="col">
                             <div class="d-flex justify-content-between">
@@ -390,14 +390,14 @@
         </div>
 
         <!-- Load more -->
-        <div class="py-5 d-flex justify-content-center"><a class="load-more-btn btn-outline-info btn-sm trick-link" href=""><img src="ressources/img/Loading.gif" alt="loading" width="40px">Load more</a></div>
+        <div class="py-5 d-flex justify-content-center"><a class="load-more-btn btn-outline-info btn-sm trick-link" href=""><img src="{{asset('assets/img/Loading.gif')}}" alt="loading" width="40px">Load more</a></div>
         
         <!-- back to trick -->
         <span class="backto-trick"><a href="#trick"><i class="fas fa-arrow-up"></i></a></span>
 
     </section>
         <!-- alert-primary = valider // alert-danger invalide ce déclanche si un probléme est rencontré-->
-    <div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+    <div class="alert alert-primary animate__animated animate__shakeX d-none" role="alert" id="js-alert">
         A simple primary alert—check it out!
     </div>
     <!--end-->
