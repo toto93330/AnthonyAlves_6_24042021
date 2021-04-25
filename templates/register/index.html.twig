@@ -40,4 +40,11 @@
 		</div>
 	</section>
 
+	  {% for message in app.flashes('notify') %}
+	<div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+        {{ message }}
+    </div>	  
+	  {% endfor %}
+    
+
 </section>{% endblock %}

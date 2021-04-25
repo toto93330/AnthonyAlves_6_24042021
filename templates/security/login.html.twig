@@ -3,33 +3,46 @@
 {% block title %}Log in!{% endblock %}
 
 {% block content %}
-
 <section class="login py-5 mx-auto" data-aos="flip-left">
-
     <div>
       <h3 class="text-center pb-5">Login</h3>
     </div>
-    <form method="post" class="py-3 px-4 mx-4 bg-light">
-      <div class="form-group text-center">
-        <label for="email" class="py-3">Email</label>
-        <input type="email" class="form-control" value="{{ last_username }}" name="email" id="email" placeholder="Enter Email" required autofocus>
-      </div>
-      <div class="form-group text-center">
-        <label for="password" class="py-3">Password</label>
-        <input type="password" name="password" class="form-control" id="password" aria-describedby="passHelp" placeholder="Enter Password" required>
-        <input type="hidden" name="_csrf_token"
+<form method="post" class="py-3 px-4 mx-4 bg-light">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <div class="text-center"><label for="inputEmail" class="py-3">Email</label></div>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Enter Email" required autofocus>
+    <div class="text-center"><label for="inputPassword" class="py-3">Password</label></div>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Enter Password" required>
+      <small id="passHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
+    <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-        <small id="passHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
-      </div>
-      <div class="text-center py-3">
-        <button type="submit" class="btn btn-primary d-block mx-auto my-3 d-sm-none">login</button>
-        <a class="d-block my-3 d-sm-none" href="">Register</a>
-        <a class="d-block" href="">Forgot Password ?</a>
-        <button type="submit" class="btn btn-primary mx-auto my-3 d-sm-block d-none">login</button>
-      </div>
-    </form>
-  </section>
 
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+     <div class="text-center py-3">
+        <a class="d-block my-3" href="">Register</a>
+        <a class="d-block" href="">Forgot Password ?</a>
+        <button type="submit" class="btn btn-primary mx-auto my-3 d-sm-block">login</button>
+      </div>
+</form>
+</section>
 {% endblock %}
 
