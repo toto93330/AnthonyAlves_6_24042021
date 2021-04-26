@@ -1,20 +1,88 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}hello
+	{{ app.user.firstname }}
+	{{ app.user.lastname }}
+	it's your dashboard!
+{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+	<section class="py-5 mx-auto p-5">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+		<div>
+			<h3 class="text-center pb-5">Profile</h3>
+		</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/symfony/src/Controller/ProfileController.php'|file_link(0) }}">src/Controller/ProfileController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/symfony/templates/profile/index.html.twig'|file_link(0) }}">templates/profile/index.html.twig</a></code></li>
-    </ul>
-</div>
+		<div class="row row-cols-1 row-cols-lg-2 row-cols-sm-1 row-cols-md-1 row-cols-xs-1">
+			<div class="col" data-aos="flip-left">
+				<div class="p-3 mb-2 border bg-light">
+					<h3 class="text-center text-uppercase">Information</h3>
+					<img src="{{ asset('uploads/avatar/') }}{{ app.user.avatar }}" alt="your-avatar" style='max-height: 110px; width: 100%; object-fit: cover;'>
+
+					<div class="my-4 text-center">
+						<h5>Firstname</h5>
+						<p>{{ app.user.firstname }}</p>
+
+						<h5>Lastname</h5>
+						<p>{{ app.user.lastname }}</p>
+
+						<h5>Email</h5>
+						<p>{{ app.user.email }}</p>
+
+						<h5>Register Date</h5>
+						<p>{{ regsiter_date|date("d/m/Y") }}</p>
+
+						<h5>Number of comment</h5>
+						<p>0</p>
+					</div>
+				</div>
+			</div>
+			<div class="col" data-aos="flip-left">
+
+
+				<div class="p-3 mb-2 border bg-light ">
+					<h3 class="text-center text-uppercase">modify profile</h3>
+
+					<div class="text-center" style="padding: 0 15%;">
+						{{ form_start(form) }}
+
+
+						<label for="password-old" class="py-3">{{ form_label(form.passwordold) }}</label><br>
+						{{ form_widget(form.passwordold) }}<br>
+						<div class="py-3">{{ form_label(form.newpassword.pass, "Password") }}</div>
+						{{ form_widget(form.newpassword.pass) }}
+						<div class="py-3">{{ form_label(form.newpassword.confirm, "Confirm your password") }}</div>
+						{{ form_widget(form.newpassword.confirm) }}
+						<label for="firstname" class="py-3 ">{{ form_label(form.newfirstname) }}</label><br>
+						{{ form_widget(form.newfirstname) }}
+						<label for="lastname" class="py-3">{{ form_label(form.newlastname) }}</label><br>
+						{{ form_widget(form.newlastname) }}
+						<label for="avatar" class="pt-3">{{ form_label(form.newavatar) }}</label><br>
+						{{ form_widget(form.newavatar) }}
+						<label for="profile_newavatar" class="btn btn-primary">Upload File</label><br>
+						<small>(.jpg, .jpeg, .gif, .png).</small><br>
+
+						<input type="submit" value="Modify" class="btn btn-primary my-3"><br>
+
+						{{ form_end(form) }}
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<!-- alert-primary = valider // alert-danger invalide ce déclanche si un probléme est rencontré-->
+	{% for message in app.flashes('notify') %}
+		<div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('notify_error') %}
+		<div class="alert alert-danger animate__animated animate__shakeX" role="alert" id="js-alert">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<!--end-->
 {% endblock %}
