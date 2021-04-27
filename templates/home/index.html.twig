@@ -398,6 +398,16 @@
     </section>
     
     <!--end-->
+{% for message in app.flashes('notify') %}
+		<div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+			{{ message }}
+		</div>
+	{% endfor %}
 
+	{% for message in app.flashes('notify_error') %}
+		<div class="alert alert-danger animate__animated animate__shakeX" role="alert" id="js-alert">
+			{{ message }}
+		</div>
+	{% endfor %}
 
 {% endblock %}
