@@ -10,19 +10,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController
 {
     private $entityManager;
+    private $session;
+
 
     /**
      * @param EntityManagerInterface $entityManager
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, SessionInterface $session)
     {
         $this->entityManager = $entityManager;
+        $this->session = $session;
     }
 
     /**
@@ -37,7 +41,13 @@ class RegisterController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
             $user = $form->getData();
+
+            //Set Variable on session for send email
+            $this->session->set('user-email', $user->getEmail());
+            $this->session->set('user-password', $user->getPassword());
+            $this->session->set('user-firstname', $user->getFirstname());
 
             //Rename and Upload avatar
             $file = $user->getAvatar();
@@ -59,7 +69,9 @@ class RegisterController extends AbstractController
 
 
             $this->addFlash('notify', 'Your are registered, please use login form!');
-            return $this->redirectToRoute('app_login');
+
+            // Send email
+            return $this->redirectToRoute('mail-register');
         }
 
 
