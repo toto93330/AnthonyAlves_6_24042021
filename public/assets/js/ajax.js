@@ -53,9 +53,9 @@ function onClickMoreTricks() {
           "</span>" +
           '<span class="trick-edit">' +
           '<a href=""><i class="fas fa-pencil-alt"></i></a> | ' +
-          '<a onclick="openIndexModal("' +
-          data[i].title +
-          '",1)" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
+          '<a onclick="openIndexModal(\''+
+          data[i].title+
+          '\',1)" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
           "</span>" +
           "</div>" +
           "</div>" +
@@ -66,7 +66,7 @@ function onClickMoreTricks() {
     }
   };
 
-  var url = "https://127.0.0.1:8000" + "/" + this.tricks;
+  var url = "https://127.0.0.1:8000" + "/ajax/" + this.tricks;
 
 
   xhr.open("GET", url);

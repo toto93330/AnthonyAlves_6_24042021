@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Trick;
 use App\Form\ProfileType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -88,10 +89,15 @@ class ProfileController extends AbstractController
             }
         }
 
+        // Count posted tricks
+
+        $postedtricks = $this->entityManager->getRepository(Trick::class)->findBy(array('author' => $user->getId()));
+        $postedtricks = count($postedtricks);
 
         return $this->render('profile/index.html.twig', [
             'regsiter_date' => $register_date,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'postedtricks' => $postedtricks,
         ]);
     }
 

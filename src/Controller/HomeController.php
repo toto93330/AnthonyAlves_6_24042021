@@ -37,11 +37,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{moretricks}")
+     * @Route("/ajax/{moretricks}", name="moretricks" ) 
      */
     public function moretricks($moretricks)
     {
+
         $moretricks = $this->limite * $moretricks;
+
+
         $tricks = $this->entityManager->getRepository(Trick::class)->findByMaxResult($moretricks);
 
         return $this->json($tricks);
