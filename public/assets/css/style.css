@@ -25,7 +25,7 @@ hr{
 
 .goto-trick{
     position: relative;
-    top: 245px;
+    top: 70vh;
     left: 50%;
     font-size: 2em;
     color: rgb(5, 125, 204);
@@ -320,7 +320,7 @@ footer {
     
     .goto-trick{
         position: absolute;
-        top: 453px;
+        top: 93vh;
         left: 90%;
         font-size: 2em;
     }
@@ -390,8 +390,6 @@ footer {
     .cross-close{
     display: none;
     }
-
-
 }
 
 @media (max-width: 1668px) {
@@ -400,4 +398,15 @@ footer {
         display: none;
     }
     
+}
+
+@media (min-width: 768px) {
+
+    .goto-trick{
+        position: absolute;
+        top: 102vh;
+        left: 96%;
+        font-size: 2em;
+    }
+
 }

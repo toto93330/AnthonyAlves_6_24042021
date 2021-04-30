@@ -54,6 +54,11 @@ class User implements UserInterface
      */
     private $lastname;
 
+    public function __toString()
+    {
+        return $this->getEmail();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

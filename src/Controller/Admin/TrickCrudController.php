@@ -2,7 +2,15 @@
 
 namespace App\Controller\Admin;
 
+use DateTime;
 use App\Entity\Trick;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class TrickCrudController extends AbstractCrudController
@@ -12,14 +20,24 @@ class TrickCrudController extends AbstractCrudController
         return Trick::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
+        $today = new \DateTime('NOW');
+
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            SlugField::new('slug')->setTargetFieldName('title'),
+            AssociationField::new('author'),
+            AssociationField::new('category'),
+            DateField::new('created_at'),
+            ImageField::new('image_card')
+                ->setBasePath('uploads/tricks/')
+                ->setUploadDir('public/uploads/tricks')
+                ->setFormType(FileUploadType::class)
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setRequired(false),
+            TextEditorField::new('content'),
         ];
     }
-    */
 }

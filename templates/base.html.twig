@@ -15,13 +15,14 @@
 </head>
 
 <body style="min-height: 100%;">
+
      <!-- modal de suppresion de Trick -->
     <div id="modal" style="background-color: rgba(4, 116, 245, 0.5);  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
 
         <div class="d-flex justify-content-center">
             <div id="modal-body" class="bg-light text-center p-2">
              <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i class="fas fa-times"></i></a>
-             <p class="p-2">voulez vous supprimez le tricks <span id="nom-du-trick"></span>.</p>
+             <p class="p-2">Do you want to remove the trick <span id="nom-du-trick"></span>.</p>
              
              <a href="" class="m-2 btn btn-outline-info btn-sm trick-link" id="modal-delect-trick">oui</a><a onclick="closeIndexModal()" class="m-2 btn btn-outline-info btn-sm trick-link" style="cursor: pointer;">non</a>
             
@@ -64,7 +65,7 @@
     </div>
     <!--end-->
 
-
+    <!-- START JAVASCRIPT -->
     <!-- Javascript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -78,6 +79,10 @@
     </script>
     <!-- Modal -->
     <script src="{{ asset('assets/js/modal.js') }}"></script>
+    <!-- AJAX -->
+     <script src="{{ asset('assets/js/ajax.js') }}"></script>
+     <!-- END JAVASCRIPT -->
+
     <footer class="footer mt-auto py-4 border-top">
         <div class="px-5">
             <br>
