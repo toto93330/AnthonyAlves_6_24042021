@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Document</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   <link rel="stylesheet" href="ressources/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="min-height: 100%;">
+   <div id="modal"
+      style="background-color: rgba(4, 116, 245, 0.5);  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
+      <div class="d-flex justify-content-center">
+         <div id="modal-body" class="bg-light text-center p-2">
+            <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i
+                  class="fas fa-times"></i></a>
+            <p class="p-2">voulez vous supprimez le tricks <span id="nom-du-trick"></span>.</p>
+            <a href="" class="m-2 btn btn-outline-info btn-sm trick-link" id="modal-delect-trick">oui</a><a
+               onclick="closeIndexModal()" class="m-2 btn btn-outline-info btn-sm trick-link"
+               style="cursor: pointer;">non</a>
+         </div>
+      </div>
+   </div>
+   <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3 border-bottom w-100 bg-white"
+      style="min-width: 0; position:absolute;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+         <span class="fs-4"><img class="logo" src="ressources/img/logo.png" alt="logo"></span>
+      </a>
+      <ul class="nav nav-pills px-5">
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Home</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Tricks</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign in</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign up</a></li>
+      </ul>
+   </header>
+   <div class="px-4 py-lg-5 py-md-5 py-3 text-center header-hero border-bottom"
+      style="background-image: url('ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg'); background-size: cover; height: 100vh;">
+      <h1 class="display-5 fw-bold py-5 text-light text-uppercase"
+         style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size: 6vh; margin-top:20vh;">
+         Snowtricks<br>
+         <small style="font-size:0.5em;">The snow must go on</small>
+      </h1>
+      <span class="goto-trick"><a href="#trick"><i class="fas fa-arrow-down"></i></a></span>
+   </div>
+   <section class="py-5 px-5 bg-light" id="trick">
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3">
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col" data-aos="flip-left">
+            <div class="card shadow-sm">
+               <img class="card-img-top home" src="ressources/img/stalefish.jpg" alt="Trick" style="height: 246px;">
+               <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                  <div class="col">
+                     <div class="d-flex justify-content-between">
+                        <span class="trick-name">
+                           <a class="btn btn-outline-info btn-sm trick-link" href="">STALEFISH</a>
+                        </span>
+                        <span class="trick-edit">
+                           <a href=""><i class="fas fa-pencil-alt"></i></a> |
+                           <a onclick="openIndexModal('STALEFISH',2)" style="cursor: pointer;"><i
+                                 class="fas fa-trash-alt"></i></a>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="py-5 d-flex justify-content-center"><a class="load-more-btn btn-outline-info btn-sm trick-link"
+            href=""><img src="ressources/img/Loading.gif" alt="loading">Load more</a></div>
+      <span class="backto-trick"><a href="#trick"><i class="fas fa-arrow-up"></i></a></span>
+   </section>
+   <div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+      A simple primary alert—check it out!
+   </div>
+   <div class="menu-mobil py-4 border-top fixed-bottom text-center bg-light">
+      <a href="#" class="nav-link d-inline"><i class="fas fa-igloo"></i></a>
+      <a href="#trick" class="nav-link d-inline"><i class="fas fa-skiing"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-user"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-sign-in-alt"></i></a>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"></script>
+   <script src="https://kit.fontawesome.com/0f420279a8.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+      AOS.init()
+   </script>
+   <script src="ressources/js/modal.js"></script>
+   <footer class="footer mt-auto py-4 border-top">
+      <div class="px-5">
+         <br>
+         <span class="text-muted" id="copyright">Copyright © 2021</span>
+      </div>
+   </footer>
+</body>
+
+</html>

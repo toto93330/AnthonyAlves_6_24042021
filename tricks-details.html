@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Document</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   <link rel="stylesheet" href="ressources/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+   <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3 border-bottom"
+      style="min-width: 0;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+         <span class="fs-4">Simple header</span>
+      </a>
+      <ul class="nav nav-pills px-5">
+         <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+         <li class="nav-item"><a href="#" class="nav-link">Tricks</a></li>
+         <li class="nav-item"><a href="#" class="nav-link">Sign in</a></li>
+         <li class="nav-item"><a href="#" class="nav-link">Sign up</a></li>
+      </ul>
+   </header>
+   <div id="tricks-fix">
+      <img class="background-tricks-image"
+         src="ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg"
+         style="background-size: cover; position:absolute;" alt="">
+      <div id="tricks-section">
+         <div class="content-tricks">
+            <div class="bg-light">
+               <div class="tricks-header"
+                  style="background-image: url('ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg'); background-size: cover;">
+                  <div class="admin-edit float-left">
+                     <a href=""><i class="fas fa-pencil-alt"></i></a>
+                     <a href=""><i class="fas fa-trash-alt"></i></a>
+                  </div>
+                  <div class="tricks-title w-100 h-100 d-flex justify-content-center">
+                     <span class="align-self-center h1 fw-bold text-light"
+                        style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:3em">Tricks
+                        name</span>
+                  </div>
+               </div>
+               <a data-bs-toggle="collapse" href="#collapsemedia" aria-expanded="false" aria-controls="collapse"
+                  style="color: red;" class="cross-close"><i class="fas fa-times"></i></a>
+               <div class="d-flex justify-content-around flex-wrap py-3" id="files-sticks" style="margin-top:0px;">
+                  <div class="justify-content-around flex-wrap" id="hide">
+                     <div class="collapse d-md-block" id="collapsemedia">
+                        <div class="d-flex justify-content-around flex-wrap">
+                           <span data-aos="flip-left"><img src="ressources/img/stalefish.jpg" alt="tricks">
+                           </span>
+                           <span data-aos="flip-left"><img src="ressources/img/stalefish.jpg" alt="tricks">
+                           </span>
+                           <span data-aos="flip-left">
+                              <video controls
+                                 src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"></video>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex justify-content-around flex-wrap">
+                  <a class="btn see-media-btn my-3" id="js-btn-see-media" data-bs-toggle="collapse"
+                     href="#collapsemedia" role="button" aria-expanded="false" aria-controls="collapsemedia">See
+                     media</a>
+               </div>
+               <hr style="background-color: grey;">
+               <article>
+                  <h2>Tricks name</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis explicabo rem quasi corporis
+                     sapiente qui fugit tempore quae alias quod dolorum, fugiat accusamus voluptatem animi
+                     voluptatibus recusandae et porro modi!
+                     Dolorem quia explicabo quam doloremque exercitationem atque excepturi architecto, recusandae
+                     repudiandae distinctio, eos eligendi necessitatibus enim omnis dignissimos sed totam,
+                     nostrum accusantium rem saepe at ex. Corporis illo repudiandae molestiae.
+                     Numquam provident officia consectetur, quasi in modi ut eum odio ex ducimus mollitia, cumque
+                     id dignissimos corrupti a quos at iusto dolorem accusantium dolore eligendi! Nostrum sit
+                     veniam quam necessitatibus!
+                     Asperiores temporibus cupiditate et autem eaque libero esse saepe. Enim reiciendis impedit
+                     ad, dolor ea eius iusto deleniti quo deserunt, ipsam at aspernatur consequuntur culpa, omnis
+                     quasi! Modi, repellat nam?
+                     Delectus ullam repudiandae hic molestiae minus amet veritatis accusantium sapiente eius
+                     deserunt asperiores, rerum, odio, quis esse assumenda quo mollitia provident tempore.
+                     Quaerat consequuntur molestias ex recusandae explicabo! Assumenda, incidunt?
+                  </p>
+                  <div class="d-flex article-info">
+                     <span>Créer par : Admin</span>
+                     <span>Ajouté le 15/04/2021</span>
+                     <span>Catégory : Rotations</span>
+                     <span><a href="#comment">10 Commentaires</a></span>
+                  </div>
+               </article>
+               <hr style="background-color: grey;">
+               <div id="create-comment">
+                  <h3 class="text-center d-block" style="color: rgb(5, 125, 204); font-weight: 600;">Publier un
+                     Commentaire
+                  </h3>
+                  <div class="d-flex justify-content-center flex-column flex-wrap py-3" id="comment-form">
+                     <form action="#" method="get">
+                        <textarea style="max-width: 250px;" name="commentaire" id="commentaire" cols="45"
+                           rows="1"></textarea>
+                     </form>
+                     <div class="text-center"><button type="submit" class="btn mt-3">Leave a comment</button></div>
+                  </div>
+                  <div class="need-connect text-center py-3" style="color: rgb(5, 125, 204); font-weight: 600;"> Vous
+                     devez vous <a href="#">connecter</a> pour poster un message. </div>
+               </div>
+               <hr style="background-color: grey;">
+               <div id="comment" class="py-3">
+                  <h3 class="text-center" style="color: rgb(5, 125, 204); font-weight: 600;">Commentaires</h3>
+                  <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
+                     <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
+                     <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
+                           class="comment-info"> Créer par Admin le 15/04/21</span>
+                     </span>
+                  </div>
+                  <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
+                     <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
+                     <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
+                           class="comment-info"> Créer par Admin le 15/04/21</span>
+                     </span>
+                  </div>
+                  <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
+                     <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
+                     <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
+                           class="comment-info"> Créer par Admin le 15/04/21</span>
+                     </span>
+                  </div>
+                  <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
+                     <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
+                     <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
+                           class="comment-info"> Créer par Admin le 15/04/21</span>
+                     </span>
+                  </div>
+                  <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
+                     <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
+                     <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
+                           class="comment-info"> Créer par Admin le 15/04/21</span>
+                     </span>
+                  </div>
+               </div>
+               <div class="py-3 d-flex justify-content-center"><a
+                     class="load-more-btn btn-outline-info btn-sm trick-link" href=""><img
+                        src="ressources/img/Loading.gif" alt="loading">Load more</a></div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+      A simple primary alert—check it out!
+   </div>
+   <div class="menu-mobil py-4 border-top fixed-bottom text-center bg-light">
+      <a href="#" class="nav-link d-inline"><i class="fas fa-igloo"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-skiing"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-user"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-sign-in-alt"></i></a>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+   </script>
+   <script src="https://kit.fontawesome.com/0f420279a8.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+      AOS.init();
+   </script>
+   <footer class="footer mt-auto border-top">
+      <div class="px-5">
+         <br>
+         <span class="text-muted text-center" id="copyright">Copyright &copy; 2021</span>
+      </div>
+   </footer>
+</body>
+
+</html>
