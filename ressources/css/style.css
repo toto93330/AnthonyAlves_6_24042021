@@ -44,7 +44,7 @@ label {
   border: none;
 }
 
-.modal-title{
+.modal-title {
   font-weight: 600;
   color: #0d6efd;
 }
@@ -218,11 +218,34 @@ iframe {
 }
 
 .trick-article-content h2 {
-  text-align: center;
-  padding-bottom: 20px;
+  padding: 20px 0px;
+  padding-left: 12px;
   font-weight: 700;
   color: #0d6efd;
   text-transform: uppercase;
+  border-left: 5px solid #0d6efd;
+}
+
+#create-comment h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #0d6efd;
+  text-transform: uppercase;
+  border-left: 5px solid #0d6efd;
+}
+
+#comment {
+  padding: 2% 10%;
+}
+
+#comment h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #0d6efd;
+  text-transform: uppercase;
+  border-left: 5px solid #0d6efd;
 }
 
 .see-media-btn {
@@ -275,7 +298,7 @@ iframe {
 }
 
 #create-comment {
-  padding: 25px 0;
+  padding: 2% 10%;
 }
 
 #comment-form form {
@@ -445,7 +468,7 @@ footer {
     height: 90vh;
   }
 
-  #comment-form textarea{
+  #comment-form textarea {
     width: 90%;
   }
 
@@ -539,6 +562,28 @@ footer {
     top: -45px;
   }
 
+  #comment h2 {
+    border: none;
+    text-align: center;
+  }
+
+  #comment{
+    padding: 0;  
+  }
+
+  #create-comment h2 {
+    border: none;
+    text-align: center;
+  }
+
+  .trick-article-content h2 {
+    border: none;
+    text-align: center;
+  }
+
+  #collapsemedia{
+    padding-top: 22px;
+  }
 }
 
 @media (max-width: 1668px) {
