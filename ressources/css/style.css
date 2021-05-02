@@ -3,6 +3,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -19,9 +20,14 @@ hr {
   margin: 0;
 }
 
+.modal-content {
+  font-weight: 600;
+  border: none;
+}
+
 .goto-trick {
   position: relative;
-  top: 45vh;
+  top: 42vh;
   left: 50%;
   font-size: 2em;
   color: #057dcc;
@@ -57,6 +63,22 @@ hr {
 
 .trick-edit {
   color: #057dcc;
+}
+
+.trick-edit .fa-pencil-alt {
+  color: #089654;
+}
+
+.trick-edit .fa-pencil-alt:hover {
+  color: #3d9b6f;
+}
+
+.trick-edit .fa-trash-alt {
+  color: #b90a22;
+}
+
+.trick-edit .fa-trash-alt:hover {
+  color: #b92438;
 }
 
 .header-hero {
@@ -116,21 +138,21 @@ hr {
   padding-left: 20px;
   padding-right: 20px;
   max-height: 40px;
-  -webkit-filter: grayscale(100%) brightness(30%) sepia(100%)
-    hue-rotate(-180deg) saturate(700%) contrast(0.8);
-  filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg)
-    saturate(700%) contrast(0.8);
+  -webkit-filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+  filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
 }
 
 #tricks-section {
   padding: 150px 150px;
 }
 
-#media-item{
-padding:5px;
+#media-item {
+  padding: 5px;
 }
 
-#media-item img, video, iframe{
+#media-item img,
+video,
+iframe {
   max-width: 310px;
   max-height: 230px;
   border: #057dcc solid 5px;
@@ -189,6 +211,10 @@ padding:5px;
 
 #tricks-section article {
   padding: 2% 10%;
+}
+
+.card-img-top {
+  object-fit: cover;
 }
 
 .article-info {
@@ -259,12 +285,18 @@ padding:5px;
   z-index: 999;
 }
 
-#files-sticks{
+#files-sticks {
   padding: 20px 0;
 }
 
 #files-sticks a {
   text-decoration: none;
+}
+
+.trick-section-title h2 {
+  color: #057dcc;
+  padding-left: 12px;
+  border-left: 5px solid #057dcc;
 }
 
 .edit-items {
@@ -304,6 +336,54 @@ footer {
   height: 75px;
 }
 
+.menu-footer-left {
+  color: #057dcc;
+}
+
+.menu-footer-left h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.menu-footer-left a {
+  color: #057dcc;
+  text-decoration: none;
+}
+
+.menu-footer-left ul {
+  padding-left: 0;
+}
+
+.menu-footer-left ul li {
+  padding-top: 8px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.menu-footer-right {
+  color: #057dcc;
+}
+
+.menu-footer-right h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.menu-footer-right a {
+  color: #057dcc;
+  text-decoration: none;
+}
+
+.menu-footer-right ul {
+  padding-left: 0;
+}
+
+.menu-footer-right ul li {
+  padding-top: 8px;
+  font-weight: 600;
+  list-style: none;
+}
+
 @media (max-width: 768px) {
   #tricks-section {
     padding: 150px 50px;
@@ -316,11 +396,11 @@ footer {
   }
 
   .header-hero {
-    height: 93vh;
+    height: 90vh;
   }
 
   .goto-trick {
-    top: 40vh;
+    top: 35vh;
   }
 
   #tricks-image {
@@ -378,9 +458,29 @@ footer {
     display: none;
   }
 
-  #files-sticks{
-  padding: 0px;
+  #files-sticks {
+    padding: 0px;
   }
+
+  .trick-section-title h2 {
+    color: #057dcc;
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+  }
+
+  .trick-section-btn a {
+    margin-left: 12px;
+  }
+
+  footer {
+    display: none;
+  }
+
+  .backto-trick {
+    top: -45px;
+  }
+
 }
 
 @media (max-width: 1668px) {
