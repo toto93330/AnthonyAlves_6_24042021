@@ -16,26 +16,26 @@
    <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
       style="min-width: 0;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-         <span class="fs-4">Simple header</span>
+         <span class="fs-4"><img class="logo" src="ressources/img/logo.png" alt="logo"></span>
       </a>
       <ul class="nav nav-pills px-5">
-         <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Tricks</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Sign in</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Sign up</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Home</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Tricks</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign in</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign up</a></li>
       </ul>
    </header>
-   <section class="py-5 mx-auto p-5" data-aos="flip-left">
+   <section class="pb-5 pt-3 mx-auto p-5" id="profile">
       <div>
-         <h3 class="text-center pb-5">Profile</h3>
+         <h3 class="text-center pb-5 text-uppercase">Profile</h3>
       </div>
       <div class="row row-cols-1 row-cols-lg-2 row-cols-sm-1 row-cols-md-1 row-cols-xs-1">
-         <div class="col">
+         <div class="col" data-aos="flip-left">
             <div class="p-3 mb-2 border bg-light">
                <h3 class="text-center text-uppercase">Information</h3>
                <img src="ressources/img/720.jpg" alt="your-avatar"
                   style='max-height: 110px; width: 100%; object-fit: cover;'>
-               <div class="my-4 text-center">
+               <div class="my-4 text-center personal-info">
                   <h5>Firstname</h5>
                   <p>Anthony</p>
                   <h5>Lastname</h5>
@@ -49,7 +49,7 @@
                </div>
             </div>
          </div>
-         <div class="col">
+         <div class="col" data-aos="flip-right">
             <div class="p-3 mb-2 border bg-light">
                <h3 class="text-center text-uppercase">modify profile</h3>
                <form action="#" method="post" class="text-center">

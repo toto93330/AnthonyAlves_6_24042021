@@ -14,3 +14,8 @@ function closeIndexModal() {
 function afficherNom(e) {
     document.getElementById("nom-du-trick").innerHTML = e
 }
+
+function openModal(){
+    var n = document.getElementById("modal");
+    document.documentElement.style.overflow = "hidden", n.style.display = "block"
+}

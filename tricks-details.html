@@ -13,24 +13,57 @@
 </head>
 
 <body>
+   <div id="modal"
+      style="background-color: rgba(4, 116, 245, 0.5);  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:10%;">
+      <div class="d-flex justify-content-center">
+         <div id="modal-body" class="bg-light text-center p-5">
+            <p class="p-2 modal-content bg-light text-center">
+               <h2 class="text-uppercase modal-title">Contributor</h2><br>
+
+               <ul style="list-style: none; padding-left: 0; height:250px; width: 300px; overflow-y: scroll; scrollbar-color: #0d6efd grey; scrollbar-width: thin; text-center"
+                  class="modal-list">
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+               </ul>
+               <a onclick="closeIndexModal()" style="cursor:pointer;" class="btn btn-primary my-3">Close</a>
+            </p>
+         </div>
+      </div>
+   </div>
    <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3 border-bottom"
       style="min-width: 0;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-         <span class="fs-4">Simple header</span>
+         <span class="fs-4"><img class="logo" src="ressources/img/logo.png" alt="logo"></span>
       </a>
       <ul class="nav nav-pills px-5">
-         <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Tricks</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Sign in</a></li>
-         <li class="nav-item"><a href="#" class="nav-link">Sign up</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Home</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Tricks</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign in</a></li>
+         <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign up</a></li>
       </ul>
    </header>
    <div id="tricks-fix">
       <img class="background-tricks-image"
          src="ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg"
          style="background-size: cover; position:absolute;" alt="">
-      <div id="tricks-section">
-         <div class="content-tricks">
+      <section id="tricks-section">
+         <div class="content-tricks bg-light">
             <div class="bg-light">
                <div class="tricks-header"
                   style="background-image: url('ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg'); background-size: cover;">
@@ -50,9 +83,11 @@
                   <div class="justify-content-around flex-wrap" id="hide">
                      <div class="collapse d-md-block" id="collapsemedia">
                         <div class="d-flex justify-content-around flex-wrap">
-                           <span data-aos="flip-left" id="media-item"><img src="ressources/img/stalefish.jpg" alt="tricks">
+                           <span data-aos="flip-left" id="media-item"><img src="ressources/img/stalefish.jpg"
+                                 alt="tricks">
                            </span>
-                           <span data-aos="flip-left" id="media-item"><img src="ressources/img/stalefish.jpg" alt="tricks">
+                           <span data-aos="flip-left" id="media-item"><img src="ressources/img/stalefish.jpg"
+                                 alt="tricks">
                            </span>
                            <span data-aos="flip-left" id="media-item">
                               <video controls
@@ -68,7 +103,7 @@
                      media</a>
                </div>
                <hr style="background-color: grey;">
-               <article>
+               <article class='trick-article-content'>
                   <h2>Tricks name</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis explicabo rem quasi corporis
                      sapiente qui fugit tempore quae alias quod dolorum, fugiat accusamus voluptatem animi
@@ -86,11 +121,14 @@
                      deserunt asperiores, rerum, odio, quis esse assumenda quo mollitia provident tempore.
                      Quaerat consequuntur molestias ex recusandae explicabo! Assumenda, incidunt?
                   </p>
+                  <hr>
                   <div class="d-flex article-info">
-                     <span>created by : Admin</span>
-                     <span>Add on 15/04/2021</span>
+                     <span>Created by : Admin</span>
+                     <span>Add on 15/04/2021 at 9h00</span>
                      <span>Category : Rotations</span>
                      <span><a href="#comment">10 Comments</a></span>
+                     <span><a onclick="openModal()" style="cursor: pointer;">Contributor</a></span>
+                     <span>Edited on 15/04/2021 at 9h00</span>
                   </div>
                </article>
                <hr style="background-color: grey;">
@@ -98,10 +136,9 @@
                   <h3 class="text-center d-block" style="color: rgb(5, 125, 204); font-weight: 600;">Publish a
                      Comment
                   </h3>
-                  <div class="d-flex justify-content-center flex-column flex-wrap py-3" id="comment-form">
-                     <form action="#" method="get">
-                        <textarea style="max-width: 300px;" name="commentaire" id="commentaire" cols="45"
-                           rows="1"></textarea>
+                  <div class="d-flex justify-content-center flex-column flex-wrap w-100" id="comment-form">
+                     <form action="#" method="get" class="mx-5">
+                        <textarea style="width: 80%;" name="commentaire" id="commentaire" cols="45" rows="1"></textarea>
                      </form>
                      <div class="text-center"><button type="submit" class="btn mt-3">Leave a comment</button></div>
                   </div>
@@ -110,35 +147,35 @@
                </div>
                <hr style="background-color: grey;">
                <div id="comment" class="py-3">
-                  <h3 class="text-center" style="color: rgb(5, 125, 204); font-weight: 600;">Commentaires</h3>
+                  <h3 class="text-center" style="color: rgb(5, 125, 204); font-weight: 600;">Comments</h3>
                   <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
                      <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
                      <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
-                           class="comment-info"> created by Admin on 15/04/21</span>
+                           class="comment-info"> Created by Admin on 15/04/21</span>
                      </span>
                   </div>
                   <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
                      <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
                      <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
-                           class="comment-info"> created by Admin on 15/04/21</span>
+                           class="comment-info"> Created by Admin on 15/04/21</span>
                      </span>
                   </div>
                   <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
                      <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
                      <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
-                           class="comment-info"> created by Admin on 15/04/21</span>
+                           class="comment-info"> Created by Admin on 15/04/21</span>
                      </span>
                   </div>
                   <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
                      <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
                      <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
-                           class="comment-info"> created by Admin on 15/04/21</span>
+                           class="comment-info"> Created by Admin on 15/04/21</span>
                      </span>
                   </div>
                   <div class="comment d-flex justify-content-center align-items-center" data-aos="flip-left">
                      <span class="user-avatar m-3"><img src="ressources/img/backflip.jpg" alt=""></span>
                      <span class="user-comment m-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br><span
-                           class="comment-info"> created by Admin on 15/04/21</span>
+                           class="comment-info"> Created by Admin on 15/04/21</span>
                      </span>
                   </div>
                </div>
@@ -147,7 +184,7 @@
                         src="ressources/img/Loading.gif" alt="loading">Load more</a></div>
             </div>
          </div>
-      </div>
+      </section>
    </div>
    <div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
       A simple primary alert—check it out!
@@ -161,39 +198,40 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
    </script>
+   <script src="ressources/js/modal.js"></script>
    <script src="https://kit.fontawesome.com/0f420279a8.js" crossorigin="anonymous"></script>
    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script>
       AOS.init();
    </script>
-      <footer class="footer mt-auto py-4 border-top text-center">
+   <footer class="footer mt-auto py-4 border-top text-center">
 
-         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-3 mt-3 mb-3">
-            <div class="col menu-footer-left" data-aos="fade-right">
-               <h3 class="text-uppercase">Menu</h3>
-               <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Tricks</a></li>
-                  <li><a href="#">Sign in</a></li>
-                  <li><a href="#">Sign Up</a></li>
-               </ul>
-            </div>
-            <div class="col menu-footer-right" data-aos="fade-left">
-               <h3 class="text-uppercase">Fast navigation</h3>
-               <ul>
-                  <li><a href="#">Legal mentions</a></li>
-                  <li><a href="#">General terms and conditions of use</a></li>
-                  <li><a href="#">Privacy policy</a></li>
-                  <li><a href="#">Cookie policy</a></li>
-                  <li><a href="#">Contact</a></li>
-               </ul>
-            </div>
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-3 mt-3 mb-3">
+         <div class="col menu-footer-left" data-aos="fade-right">
+            <h3 class="text-uppercase">Menu</h3>
+            <ul>
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Tricks</a></li>
+               <li><a href="#">Sign in</a></li>
+               <li><a href="#">Sign Up</a></li>
+            </ul>
+         </div>
+         <div class="col menu-footer-right" data-aos="fade-left">
+            <h3 class="text-uppercase">Fast navigation</h3>
+            <ul>
+               <li><a href="#">Legal mentions</a></li>
+               <li><a href="#">General terms and conditions of use</a></li>
+               <li><a href="#">Privacy policy</a></li>
+               <li><a href="#">Cookie policy</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
 
-            <div class="w-100">
-               <br>
-               <span class="text-muted" id="copyright">Copyright © 2021</span>
-            </div>
-      </footer>
+         <div class="w-100">
+            <br>
+            <span class="text-muted" id="copyright">Copyright © 2021</span>
+         </div>
+   </footer>
 </body>
 
 </html>
