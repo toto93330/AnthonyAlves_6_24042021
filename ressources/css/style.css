@@ -126,6 +126,16 @@ hr {
   padding: 150px 150px;
 }
 
+#media-item{
+padding:5px;
+}
+
+#media-item img, video, iframe{
+  max-width: 310px;
+  max-height: 230px;
+  border: #057dcc solid 5px;
+}
+
 .background-tricks-image {
   width: 100%;
   min-height: 500px;
@@ -249,6 +259,10 @@ hr {
   z-index: 999;
 }
 
+#files-sticks{
+  padding: 20px 0;
+}
+
 #files-sticks a {
   text-decoration: none;
 }
@@ -362,6 +376,10 @@ footer {
 
   .cross-close {
     display: none;
+  }
+
+  #files-sticks{
+  padding: 0px;
   }
 }
 
