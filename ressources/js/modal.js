@@ -15,7 +15,12 @@ function afficherNom(e) {
     document.getElementById("nom-du-trick").innerHTML = e
 }
 
-function openModal(){
+function openModal() {
     var n = document.getElementById("modal");
     document.documentElement.style.overflow = "hidden", n.style.display = "block"
+}
+
+function closeAlerte() {
+    var n = document.getElementById("js-alert");
+    n.style.display = "none";
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+   <meta charset="UTF-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Document</title>
@@ -13,8 +13,40 @@
 </head>
 
 <body>
-   <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3 border-bottom"
-      style="min-width: 0;">
+   <div id="modal"
+      style="background-color: #1a1a1a85;  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:10%;">
+      <div class="d-flex justify-content-center">
+         <div id="modal-body" class="bg-light text-center p-5">
+            <p class="p-2 modal-content bg-light text-center">
+               <h2 class="text-uppercase modal-title">Contributors</h2><br>
+
+               <ul style="list-style: none; padding-left: 0; height:250px; width: 300px; overflow-y: scroll; scrollbar-color: #1a1a1a grey; scrollbar-width: thin; text-center"
+                  class="modal-list">
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="ressources/img/backflip.jpg"
+                              alt=""></span></a>
+                  </li>
+               </ul>
+               <a onclick="closeIndexModal()" style="cursor:pointer;" class="btn my-3">Close</a>
+            </p>
+         </div>
+      </div>
+   </div>
+   <header class="d-none d-lg-flex d-md-flex d-flex flex-wrap justify-content-center py-3" style="min-width: 0;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
          <span class="fs-4"><img class="logo" src="ressources/img/logo.png" alt="logo"></span>
       </a>
@@ -25,194 +57,153 @@
          <li class="nav-item"><a href="#" class="nav-link fw-bold">Sign up</a></li>
       </ul>
    </header>
-   <div id="tricks-fix" class="mx-auto">
+   <div id="tricks-fix">
       <img class="background-tricks-image"
          src="ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg"
          style="background-size: cover; position:absolute;" alt="">
-      <form action="#" method="post" enctype="multipart/form-data">
-         <div id="tricks-section">
-            <div class="content-tricks">
+      <form action="#" method="post">
+         <section id="tricks-section" class="admin-trick">
+            <div class="content-tricks bg-light">
                <div class="bg-light">
                   <div class="tricks-header"
                      style="background-image: url('ressources/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg'); background-size: cover;">
                      <div class="admin-edit float-left">
-                        <input type="file" name="img-title" id="img-title" hidden>
-                        <label for="img-title"><i style="color:#0d6efd; cursor:pointer;"
-                              class="fas fa-pencil-alt"></i></label>
-                        <a href=""><i style="color:#0d6efd;" class="fas fa-trash-alt"></i></a>
+                        <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="#"><i class="fas fa-trash-alt"></i></a>
                      </div>
-                     <span class="tricks-title w-100 h-100 d-flex justify-content-center">
-                        <span class="h1 fw-bold text-light">
-                           <input class="text-center w-100"
-                              style="color:white; background-color: transparent; border:none; text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:2em"
-                              type="text" name="title" id="title" value="Tricks name">
-                        </span>
-                     </span>
+                     <div class="tricks-title w-100 h-100 d-flex justify-content-center">
+                        <span class="align-self-center h1 fw-bold text-light"
+                           style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:3em">Trick
+                           Name :<br><input class="admin-title" type="text"></span>
+                     </div>
                   </div>
-                  <a data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false"
-                     aria-controls="collapseExample" style="color: red;" class="cross-close"><i
-                        class="fas fa-times"></i></a>
-                  <div class="d-flex justify-content-around flex-wrap py-3" id="files-sticks" style="margin-top:0px;">
+                  <a data-bs-toggle="collapse" href="#collapsemedia" aria-expanded="false" aria-controls="collapse"
+                     style="color: red;" class="cross-close"><i class="fas fa-times"></i></a>
+                  <div class="d-flex justify-content-around flex-wrap" id="files-sticks" style="margin-top:0px;">
                      <div class="justify-content-around flex-wrap" id="hide">
-                        <div class="collapse d-lg-block" id="collapseExample">
+                        <div class="collapse d-md-block" id="collapsemedia">
                            <div class="d-flex justify-content-around flex-wrap">
-                              <div data-aos="flip-left">
-                                 <img src="ressources/img/stalefish.jpg" alt="tricks">
-                                 <div class="edit-items d-flex justify-content-around pt-1">
-                                    <a href=""><i class="fas fa-pencil-alt"></i></a>
-                                    <a href=""><i class="fas fa-trash-alt"></i></a>
-                                 </div>
-                              </div>
-                              <div data-aos="flip-left">
-                                 <img src="ressources/img/stalefish.jpg" alt="tricks">
-                                 <div class="edit-items d-flex justify-content-around pt-1">
-                                    <a href=""><i class="fas fa-pencil-alt"></i></a>
-                                    <a href=""><i class="fas fa-trash-alt"></i></a>
-                                 </div>
-                              </div>
-                              <div data-aos="flip-left">
+                              <span data-aos="flip-left" id="media-item">
+                                 <div id="edit-media"><a href="#" class="btn">Delect</a></div><img
+                                    src="ressources/img/stalefish.jpg" alt="tricks">
+                              </span>
+                              <span data-aos="flip-left" id="media-item">
+                                 <div id="edit-media"><a href="#" class="btn">Delect</a></div><img
+                                    src="ressources/img/stalefish.jpg" alt="tricks">
+                              </span>
+                              <span data-aos="flip-left" id="media-item">
+                                 <div id="edit-media"><a href="#" class="btn">Delect</a></div>
                                  <video controls
                                     src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"></video>
-                                 <div class="edit-items d-flex justify-content-around pt-1">
-                                    <a href=""><i class="fas fa-pencil-alt"></i></a>
-                                    <a href=""><i class="fas fa-trash-alt"></i></a>
-                                 </div>
-                              </div>
+                              </span>
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="d-flex justify-content-around flex-wrap">
                      <a class="btn see-media-btn my-3" id="js-btn-see-media" data-bs-toggle="collapse"
-                        href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See
+                        href="#collapsemedia" role="button" aria-expanded="false" aria-controls="collapsemedia">See
                         media</a>
                   </div>
-               </div>
-               <hr style="background-color: grey;">
-               <div class="d-flex flex-column justify-content-center">
-                  <div class="py-3 text-center">
-                     <article>
-                        <h3 class="py-3" style="color: rgb(5, 125, 204); font-weight: 600;">Contenu de l'article
-                        </h3>
-                        <div class="d-flex article-info">
-                           <span>Créer par : Admin</span>
-                           <span>Ajouté le 15/04/2021</span>
-                           <span>Catégory : Rotations</span>
-                           <span><a href="#comment">10 Commentaires</a></span>
-                        </div>
-                        <textarea class="w-50" name="article-content" id="article-content" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis explicabo rem quasi corporis
-                            sapiente qui fugit tempore quae alias quod dolorum, fugiat accusamus voluptatem animi
-                            voluptatibus recusandae et porro modi!
-                            Dolorem quia explicabo quam doloremque exercitationem atque excepturi architecto, recusandae
-                            repudiandae distinctio, eos eligendi necessitatibus enim omnis dignissimos sed totam,
-                            nostrum accusantium rem saepe at ex. Corporis illo repudiandae molestiae.
-                            Numquam provident officia consectetur, quasi in modi ut eum odio ex ducimus mollitia, cumque
-                            id dignissimos corrupti a quos at iusto dolorem accusantium dolore eligendi! Nostrum sit
-                            veniam quam necessitatibus!
-                            Asperiores temporibus cupiditate et autem eaque libero esse saepe. Enim reiciendis impedit
-                            ad, dolor ea eius iusto deleniti quo deserunt, ipsam at aspernatur consequuntur culpa, omnis
-                            quasi! Modi, repellat nam?
-                            Delectus ullam repudiandae hic molestiae minus amet veritatis accusantium sapiente eius
-                            deserunt asperiores, rerum, odio, quis esse assumenda quo mollitia provident tempore.
-                            Quaerat consequuntur molestias ex recusandae explicabo! Assumenda, incidunt?</textarea>
-                     </article>
+                  <hr style="background-color: grey;">
+                  <article class='trick-article-content'>
+                     <h2>Content</h2>
+                     <textarea name="content" id="content" cols="30" rows="10"
+                        style="width: 100%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis vel eaque repellat reprehenderit officia molestias explicabo, omnis saepe, fugiat minima recusandae dolor temporibus! Incidunt, officia nostrum! Maxime impedit eius dolorum.</textarea>
+
+                  </article>
+                  <hr style="background-color: grey;">
+                  <div id="select-category">
+                     <h2>Select Category</h2>
+                     <div class="d-flex justify-content-center flex-column flex-wrap w-100">
+
+                        <select name="category" id="category">
+                           <option value="">--Selectionner un groupe--</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                           <option value="rotations">Rotations</option>
+                        </select>
+                     </div>
                   </div>
-                  <div class="py-3 text-center">
-                     <h3 class="py-3" style="color: rgb(5, 125, 204); font-weight: 600;">Selection d'une catégorie</h3>
-                     <select name="groupe" id="groupe">
-                        <option value="">--Selectionner un groupe--</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                        <option value="rotations">Rotations</option>
-                     </select>
+                  <hr style="background-color: grey;">
+                  <div id="upload-image">
+                     <h2 class="mb-3">Upload image</h2>
+                     <div class="d-flex justify-content-center flex-column flex-wrap w-100">
+
+                        <input type="file" name="image" id="image" class="d-none"><br>
+                        <label for="image" class="btn" class="text-center">Upload File</label><br>
+                        <small>(.jpg, .jpeg, .gif, .png).</small><br>
+                     </div>
                   </div>
-                  <div class="py-3 text-center">
-                     <h3 class="py-3" style="color: rgb(5, 125, 204); font-weight: 600;">Upload de medias</h3>
-                     <input type="file" name="images" id="images" multiple hidden>
-                     <label for="images"><span class="btn trick-link">Upload de
-                           medias</span><br><small>(.png, .jpg, .gif, .jpeg)</small></label>
-                  </div>
-                  <div class="py-3 text-center">
-                     <h3 class="py-3" style="color: rgb(5, 125, 204); font-weight: 600;">Ajouter une video youtube</h3>
-                     <textarea class="w-50" name="video-youtube" id="video-youtube" rows="5"></textarea>
-                     <br><small>(un lien par ligne)</small>
-                     <br><button type="submit" class="btn trick-link my-5">modifier</button>
+                  <hr style="background-color: grey;">
+                  <div id="upload-video">
+                     <h2 class="mb-3">Upload video</h2>
+                     <div class="d-flex justify-content-center flex-column flex-wrap w-100">
+
+                        <textarea style="width: 50%;" name="upload-video" id="upload-video" rows="5"></textarea><br>
+                        <small>(one link per line)</small>
+                     </div>
                   </div>
                </div>
-            </div>
-         </div>
+               <div class="d-flex justify-content-center flex-column flex-wrap w-100">
+                  <input type="button" value="Submit Trick" class="btn submit-button">
+               </div>
+         </section>
       </form>
-      <div class="alert alert-primary animate__animated animate__shakeX" role="alert" id="js-alert">
+   </div>
+   <a onclick="closeAlerte()">
+      <div class="alert alert-primary animate__animated animate__shakeX" style="cursor:pointer;" role="alert"
+         id="js-alert">
          A simple primary alert—check it out!
       </div>
-      <div class="menu-mobil py-4 border-top fixed-bottom text-center bg-light">
-         <a href="#" class="nav-link d-inline"><i class="fas fa-igloo"></i></a>
-         <a href="#" class="nav-link d-inline"><i class="fas fa-skiing"></i></a>
-         <a href="#" class="nav-link d-inline"><i class="fas fa-user"></i></a>
-         <a href="#" class="nav-link d-inline"><i class="fas fa-sign-in-alt"></i></a>
-      </div>
-      <div class="modal fade" id="delect-tricks-modal" tabindex="-1" role="dialog" aria-labelledby="delect-tricks-modal"
-         aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  ...
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-               </div>
-            </div>
+   </a>
+   <div class="menu-mobil py-4 border-top fixed-bottom text-center">
+      <a href="#" class="nav-link d-inline"><i class="fas fa-igloo"></i></a>
+      <a href="#trick" class="nav-link d-inline"><i class="fas fa-skiing"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-user"></i></a>
+      <a href="#" class="nav-link d-inline"><i class="fas fa-sign-in-alt"></i></a>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://kit.fontawesome.com/0f420279a8.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+      AOS.init()
+   </script>
+   <script src="ressources/js/modal.js"></script>
+   <footer class="footer mt-auto py-4 border-top text-center">
+
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-3 mt-3 mb-3 mx-5">
+         <div class="col menu-footer-left" data-aos="fade-right">
+            <h3 class="text-uppercase">Menu</h3>
+            <ul>
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Tricks</a></li>
+               <li><a href="#">Sign in</a></li>
+               <li><a href="#">Sign Up</a></li>
+            </ul>
          </div>
-      </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-      </script>
-      <script src="https://kit.fontawesome.com/0f420279a8.js" crossorigin="anonymous"></script>
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script>
-         AOS.init();
-      </script>
-      <footer class="footer mt-auto py-4 border-top text-center">
+         <div class="col menu-footer-right" data-aos="fade-left">
+            <h3 class="text-uppercase">Fast navigation</h3>
+            <ul>
+               <li><a href="#">Legal mentions</a></li>
+               <li><a href="#">General terms and conditions of use</a></li>
+               <li><a href="#">Privacy policy</a></li>
+               <li><a href="#">Cookie policy</a></li>
+               <li><a href="#">Contact</a></li>
+            </ul>
+         </div>
 
-         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 g-3 mt-3 mb-3">
-            <div class="col menu-footer-left" data-aos="fade-right">
-               <h3 class="text-uppercase">Menu</h3>
-               <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Tricks</a></li>
-                  <li><a href="#">Sign in</a></li>
-                  <li><a href="#">Sign Up</a></li>
-               </ul>
-            </div>
-            <div class="col menu-footer-right" data-aos="fade-left">
-               <h3 class="text-uppercase">Fast navigation</h3>
-               <ul>
-                  <li><a href="#">Legal mentions</a></li>
-                  <li><a href="#">General terms and conditions of use</a></li>
-                  <li><a href="#">Privacy policy</a></li>
-                  <li><a href="#">Cookie policy</a></li>
-                  <li><a href="#">Contact</a></li>
-               </ul>
-            </div>
-
-            <div class="w-100">
-               <br>
-               <span class="text-muted" id="copyright">Copyright © 2021</span>
-            </div>
-      </footer>
+         <div class="w-100">
+            <br>
+            <span id="copyright">Copyright © Snowtricks.com 2021</span>
+         </div>
+   </footer>
 </body>
 
 </html>
