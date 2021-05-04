@@ -42,7 +42,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $register_date;
+    private $created_at;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -154,12 +154,12 @@ class User implements UserInterface
 
     public function getRegisterDate(): ?\DateTimeInterface
     {
-        return $this->register_date;
+        return $this->created_at;
     }
 
-    public function setRegisterDate(\DateTimeInterface $register_date): self
+    public function setRegisterDate(\DateTimeInterface $created_at): self
     {
-        $this->register_date = $register_date;
+        $this->created_at = $created_at;
 
         return $this;
     }

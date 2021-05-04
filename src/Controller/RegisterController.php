@@ -68,7 +68,7 @@ class RegisterController extends AbstractController
             $this->entityManager->flush();
 
 
-            $this->addFlash('notify', 'Your are registered, please use login form!');
+            $this->addFlash('notify', 'Your are registered, use login form!');
 
             // Send email
             return $this->redirectToRoute('mail-register');
