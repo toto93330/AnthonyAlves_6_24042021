@@ -4,7 +4,7 @@
 var tricks = parseInt(2);
 
 function onClickMoreTricks() {
-    var w = document.querySelectorAll("#js-trick").length; 
+  var w = document.querySelectorAll("#js-trick").length;
   var x = document.getElementById("js-loading-img");
   var y = document.getElementById("js-moretricks-content");
   var z = document.getElementById("js-moretricks-btn");
@@ -16,7 +16,7 @@ function onClickMoreTricks() {
   xhr.onreadystatechange = function () {
     console.log(this);
     if (this.readyState == 4 && this.status == 200) {
-        
+
       var data = this.response;
       this.tricks = parseInt(this.tricks) + parseInt(1);
 
@@ -24,12 +24,13 @@ function onClickMoreTricks() {
       if (data.length <= 10 || w >= data.length) {
         console.log("display none");
         z.style.display = "none";
-         z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
-         return;
+        z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
+        return;
       }
 
       // FIX LOAD BTN
       setTimeout(timeOut(), 3000);
+
       function timeOut() {
         x.style.display = "none";
       }
@@ -45,7 +46,7 @@ function onClickMoreTricks() {
           '<div class="col">' +
           '<div class="d-flex justify-content-between">' +
           '<span class="trick-name">' +
-          '<a class="btn btn-outline-info btn-sm trick-link" href="/tricks/' +
+          '<a class="btn btn-outline-info btn-sm trick-link" href="/trick/' +
           data[i].slug +
           '">' +
           data[i].title +
@@ -53,8 +54,8 @@ function onClickMoreTricks() {
           "</span>" +
           '<span class="trick-edit">' +
           '<a href=""><i class="fas fa-pencil-alt"></i></a> | ' +
-          '<a onclick="openIndexModal(\''+
-          data[i].title+
+          '<a onclick="openIndexModal(\'' +
+          data[i].title +
           '\',1)" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
           "</span>" +
           "</div>" +

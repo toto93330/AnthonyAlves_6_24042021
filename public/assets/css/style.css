@@ -1,412 +1,1027 @@
 /* GENERAL */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-html, body {
-	height: 100%;
-	margin: 0; padding: 0;
+select{
+  padding: 5px;
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
+  background-color: transparent;
+  appearance: none;
+  border-radius: 12px;
+}
+
+select:hover{
+  padding: 5px;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+  color: white;
+  appearance: none;
+  border-radius: 12px;
+}
+
+h3 {
+  font-weight: 700;
 }
 
 body {
-	display : table;
-    border-collapse: collapse;
-	width: 100%;
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-nav{
-   font-size: 22px;
+nav {
+  font-size: 22px;
 }
 
-hr{
-    margin: 0;
+hr {
+  margin: 0;
 }
 
-
-
-/* HEADER HERO */
-
-.goto-trick{
-    position: relative;
-    top: 70vh;
-    left: 50%;
-    font-size: 2em;
-    color: rgb(5, 125, 204);
+.btn-primary{
+background-color: transparent;
+color: #1a1a1a;
 }
 
-.backto-trick{
-    position: relative;
-    top: 50px;
-    left: 100.6%;
-    font-size: 2em;
-    color: rgb(5, 125, 204);
+.submit-button {
+  margin: auto;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid #1a1a1a;
+  max-width: 150px;
 }
 
-/* MOBIL MENU */
-
-.menu-mobil{
-    display: none;
-    overflow: clip;
-    max-height: 76px;
-    font-size: 1.5em;
+.submit-button:hover {
+  margin: auto;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #1a1a1a;
+  max-width: 150px;
+  background-color: #1a1a1a;
+  color: white;
 }
 
-
-/* BUTTON TRICK LINK */
-
-.trick-link {
-    font-weight: 900;
-    font-size: 0.765625rem;
-    border-radius: 0.625rem;
-    border: solid 2px rgb(5, 125, 204);
-    color: rgb(5, 125, 204);
-}
-
-.trick-link:hover{
-    color:whitesmoke;
-    background-color: rgb(5, 125, 204);
-    border: solid 2px rgb(5, 125, 204);
-}
-
-.trick-edit{
-    color: rgb(5, 125, 204);
-}
-
-/* HEADER SLOGAN */
-
-.header-hero{
-    min-height: 500px;
-}
-
-/* LOAD MORE BTN */
-
-
-.load-more-btn{
-    display: block;
-    width: 200px;
-    font-weight: 400;
-    line-height: 1.5;
-    font-weight:600; 
-    color: rgb(5, 125, 204);
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 2px solid rgb(5, 125, 204);
-    padding: .375rem .75rem;
-    font-size: 1.5rem;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-
-/* ALERTE */
-
-.alert{
-    margin-left: 18px;
-    bottom: 65px;
-    position: fixed;
-    z-index: 9999;
-}
-
-/* FILES STRICKS */
-
-#files-sticks img{
-    width: 320px;
-    height: 240px;
-
+.alert {
+  margin-left: 18px;
+  bottom: 65px;
+  position: fixed;
+  z-index: 9999;
 }
 
 /* LOGIN */
-
-.login{
-    width: 450px;
+#login h3,
+label {
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
-/* LOGO */
-
-.logo{
-    max-height: 40px;
-    -webkit-filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
-    filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+#login a {
+  color: #1a1a1a;
 }
 
-
-/* TRICKS SECTIONS */
-
-#tricks-section{
-    padding: 150px 150px;
+#login .btn {
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
 }
 
-.background-tricks-image{
-    width: 100%;
-    min-height: 500px;
-    z-index: 0;
-}
-
-.tricks-header{
-    position:relative;
-    height: 550px;
-    width: 100%;
-    
-}
-
-.admin-edit{
-    position:absolute;
-    right: 0;
-    padding: 12px;
-    font-size: 22px;
-}
-
-.admin-edit i{
-    padding: 5px;
-}
-
-.content-tricks{
-    -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.44);
-    -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.44);
-    box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.44);
-    z-index: 100;
-    position: relative;
-}
-
-.see-media-btn{
-    display: none;
-    border: 2px solid rgb(5, 125, 204);
-    border-radius: 12px;
-    font-weight: 600;
-    margin-left: 12px;
-    color: rgb(5, 125, 204);
-}
-
-.see-media-btn:hover{
-    border: 2px solid white;
-    border-radius: 12px;
-    color: white;
-    background-color: rgb(5, 125, 204);
-}
-
-.hide{
-    display: flex;
-}
-
-#tricks-section article{
-    padding: 2% 10%;
-}
-
-.article-info{
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.article-info span{
-    padding: 12px;
-    margin: 5px;
-    font-weight: 700;
-    border: 2px solid rgb(5, 125, 204);
-}
-
-.article-info a{
-    text-decoration: none;
-    color: #212529;
-}
-
-#comment-form form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#comment-form .btn{
-    border: 2px solid rgb(5, 125, 204);
-    border-radius: 12px;
-    font-weight: 600;
-    margin-left: 12px;
-    color: rgb(5, 125, 204);
-}
-
-#comment-form .btn:hover{
-    border: 2px solid white;
-    border-radius: 12px;
-    color: white;
-    background-color: rgb(5, 125, 204);
-}
-
-.need-connect a{
-text-decoration: none;
-}
-
-.user-avatar img{
-    height: 60px;
-    width: 60px;
-    object-fit: cover;
-    border-radius: 100%;
-}
-
-.user-comment{
-    padding: 10px;
-    border: 2px solid rgb(5, 125, 204);
-}
-
-.comment-info{
-    font-weight: 600;
-}
-
-/* CROSS CLOSE */
-
-.cross-close{
-    display: none;
-    position: absolute;
-    right: 0;
-    padding: 12px;
-    top: 550px;
-    z-index: 999;
+#login .btn:hover {
+  border: 2px solid #1a1a1a;
+  color: white;
+  background-color: #1a1a1a;
 }
 
 
-#files-sticks a{
-    text-decoration: none;
+/* FORGOT PASSWORD */
+.forgot-password-btn {
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
 }
 
-/* EDIT ITEMS */
-
-.edit-items{
-    position: relative;
-    left: 70%;
-    margin: 12px 12px;
-    width: 80px;
-    height: 40px;
-    border:solid 2px rgb(5, 125, 204);
-    text-align: center;
+.forgot-password-btn:hover {
+  border: 2px solid #1a1a1a;
+  color: white;
+  background-color: #1a1a1a;
 }
 
-.edit-items i{
-    display: inline;
-    vertical-align: middle;
+#forgot-password h3,
+label {
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
+#forgot-password .btn {
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
+}
+
+#forgot-password .btn:hover {
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+/* HEADER */
+header {
+  z-index: 999999;
+  background-color: #1a1a1a;
+}
+
+header a {
+  color: grey;
+}
+
+
+header a:hover {
+  color: white;
+}
+
+.header-hero {
+  height: 100vh;
+  background-size: cover;
+}
+
+.header-hero h1 {
+  text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black;
+  font-size: 6vw;
+  margin-top: 20vh;
+}
+
+/* PROFILE */
+#profile h3,
+label,
+h5 {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+#profile .btn {
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
+}
+
+#profile .btn:hover {
+  font-weight: 600;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+#profile p {
+  font-weight: 600;
+}
+
+#profile{
+  margin-top: 70px;
+}
 
 /* MODAL */
-body #modal
-{
- height: 100%;
- width: 100%;
- overflow: hidden;
+.modal-content {
+  font-weight: 600;
+  border: none;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* GO AND BACK TRICKS */
+.goto-trick {
+  position: absolute;
+  top: 94vh;
+  left: 96%;
+  font-size: 2em;
+}
+
+.goto-trick i {
+  color: #1a1a1a;
+}
+
+.backto-trick {
+  position: relative;
+  top: 50px;
+  left: 100.6%;
+  font-size: 2em;
+}
+
+.backto-trick i {
+  color: #1a1a1a;
+}
+
+/* MOBILE MENU */
+.menu-mobile {
+  display: none;
+  max-height: 76px;
+  font-size: 1.5em;
+}
+
+.menu-mobile a {
+  color: white;
+}
+
+.menu-mobile a:hover {
+  color: grey;
+}
+
+/* TRICKS */
+.trick-link {
+  font-weight: 600;
+  font-size: 0.765625rem;
+  border-radius: 0.625rem;
+  border: solid 2px #1a1a1a;
+  color: #1a1a1a;
+}
+
+.trick-link:hover {
+  color: white;
+  background-color: #1a1a1a;
+  border: solid 2px whitesmoke;
+}
+
+.trick-edit {
+  color: #1a1a1a;
+}
+
+.trick-edit .fa-pencil-alt {
+  color: #089654;
+}
+
+.trick-edit .fa-pencil-alt:hover {
+  color: #3d9b6f;
+}
+
+.trick-edit .fa-trash-alt {
+  color: #b90a22;
+}
+
+.trick-edit .fa-trash-alt:hover {
+  color: #b92438;
+}
+
+.admin-title {
+  background-color: #1a1a1a91;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  border: 2px solid #1a1a1a;
+}
+
+.fa-image {
+  color: #089654;
+}
+
+.fa-image:hover {
+  color: #1a1a1a;
+}
+
+.load-more-btn {
+  display: block;
+  width: 200px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.load-more-btn img {
+  height: 40px;
+  filter: contrast(160%);
+  -webkit-filter: contrast(160%);
+}
+
+#files-sticks img {
+  width: 320px;
+  height: 240px;
+}
+
+.login {
+  margin-top: 70px;
+  width: 450px;
+}
+
+.logo {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-height: 40px;
+}
+
+#tricks-section {
+  padding: 150px 150px;
+}
+
+#media-item {
+  padding: 5px;
+}
+
+#media-item img,
+video,
+iframe {
+  max-width: 310px;
+  max-height: 230px;
+}
+
+.background-tricks-image {
+  width: 100%;
+  min-height: 500px;
+  z-index: 0;
+}
+
+.tricks-header {
+  position: relative;
+  height: 550px;
+  width: 100%;
+}
+
+.admin-edit {
+  position: absolute;
+  right: 0;
+  top: -2px;
+  margin: 12px;
+  font-size: 22px;
+  background-color: #1a1a1a8f;
+  border: 2px solid rgba(245, 245, 245, 0.301);
+  border-radius: 5px;
 }
 
 
-#modal-body{
-    border-radius: 12px;
-    border: 2px solid rgb(5, 125, 204);
+.admin-edit a {
+  color: #b90a22;
 }
 
-.close-modal{
-    position:relative;
-    left: 45%;
-    top: 3px;
+.admin-edit a:hover {
+  color: #1a1a1a;
 }
 
-/* FOOTER */
+.admin-edit i {
+  padding: 5px;
+}
+
+.admin-edit .fa-pencil-alt{
+color: #089654;
+}
+
+.admin-edit .fa-pencil-alt:hover{
+color: #1a1a1a;
+}
+
+.fa-trash-alt{
+  color: #b90a22;
+}
+
+.fa-trash-alt:hover{
+  color: #1a1a1a;
+}
+
+.obj {
+  position: absolute;
+  top: -0.5px;
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-tricks {
+  -webkit-box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.44);
+  box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.44);
+  z-index: 100;
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.trick-article-content {
+  font-weight: 600;
+}
+
+.trick-article-content h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+#create-comment h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+
+#select-category {
+  padding: 2% 10%;
+}
+
+#select-category select {
+  max-width: 220px;
+  margin: auto;
+}
+
+#select-category h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+#upload-image {
+  padding: 2% 10%;
+}
+
+#upload-image h2 {
+  margin-bottom: 22px;
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+#upload-image label,
+small {
+  text-align: center;
+}
+
+#upload-image .btn {
+  max-width: 120px;
+  margin: auto;
+  border: 2px solid #1a1a1a;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+#upload-image .btn:hover {
+  max-width: 120px;
+  margin: auto;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+#upload-video {
+  padding: 2% 10%;
+}
+
+#upload-video h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+#upload-video textarea {
+  margin: auto;
+  padding: 0;
+}
+
+#comment {
+  padding: 2% 10%;
+}
+
+#comment h2 {
+  padding: 20px 0px;
+  padding-left: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  border-left: 5px solid #1a1a1a;
+}
+
+.need-connect a {
+  color: grey;
+}
+
+.need-connect a:hover {
+  color: #1a1a1a;
+}
+
+#edit-media {
+  position: absolute;
+  width: 97%;
+  height: 93.5%;
+  background-color: #1a1a1aa9
+}
+
+#edit-media .btn {
+  margin-top: 10vh;
+  margin-left: 12vh;
+  border: #b90a22;
+  font-weight: 600;
+  color: white;
+  background-color: #b90a22;
+}
+
+#edit-media .btn:hover {
+  margin-top: 10vh;
+  margin-left: 12vh;
+  border: #b90a22;
+  font-weight: 600;
+  color: #1a1a1a;
+  background-color: white;
+}
+
+.see-media-btn {
+  display: none;
+  border: 2px solid #1a1a1a;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-left: 12px;
+  color: #1a1a1a;
+}
+
+.see-media-btn:hover {
+  border: 2px solid #fff;
+  border-radius: 12px;
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+.hide {
+  display: flex;
+}
+
+#tricks-section article {
+  padding: 2% 10%;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+.article-info {
+  padding-top: 22px;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.article-info span {
+  padding: 12px;
+  margin: 5px;
+  color: whitesmoke;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: #1a1a1a;
+}
+
+.article-info a {
+  text-decoration: none;
+  color: white;
+}
+
+#create-comment {
+  padding: 2% 10%;
+}
+
+#comment-form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#comment-form .btn {
+  border: 2px solid #1a1a1a;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-left: 12px;
+  color: #1a1a1a;
+}
+
+#comment-form .btn:hover {
+  border: 2px solid #fff;
+  border-radius: 12px;
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+.need-connect a {
+  text-decoration: none;
+}
+
+.user-avatar img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.user-comment {
+  padding: 10px;
+  font-weight: 600;
+  border-left: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.comment-info {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.cross-close {
+  display: none;
+  position: absolute;
+  right: 0;
+  padding: 12px;
+  top: 550px;
+  z-index: 999;
+}
+
+#files-sticks {
+  padding: 20px 0;
+}
+
+#files-sticks a {
+  text-decoration: none;
+}
+
+.trick-section-title h2 {
+  color: #1a1a1a;
+  padding-left: 12px;
+  border-left: 5px solid #1a1a1a;
+}
+
+.edit-items {
+  position: relative;
+  left: 70%;
+  margin: 12px 12px;
+  width: 80px;
+  height: 40px;
+  border: solid 2px #1a1a1a;
+  text-align: center;
+}
+
+.edit-items i {
+  display: inline;
+  vertical-align: middle;
+}
+
+body #modal {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#modal .btn {
+  font-weight: 600;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+}
+
+#modal .btn:hover {
+  color: white;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+}
+
+#modal-body {
+  border-radius: 12px;
+  border: 2px solid #1a1a1a;
+}
+
+body #modal-view-contributor {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#modal-view-contributor .btn {
+  font-weight: 600;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  width: 80px;
+  height: 30px;
+}
+
+#modal-view-contributor .btn:hover {
+  color: white;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+}
+
+body #modal-delect-trick {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#modal-delect-trick .btn {
+  font-weight: 600;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  width: 80px;
+  height: 30px;
+}
+
+#modal-delect-trick .btn:hover {
+  color: white;
+  border: 2px solid #1a1a1a;
+  background-color: #1a1a1a;
+}
+
+.close-modal {
+  position: relative;
+  left: 45%;
+  top: 3px;
+}
 
 footer {
-	display : table-row; /* J'utilise cette propriter pour fixer le footer au bootom (voir le body) */
-	height: 75px; /* à titre d'exemple */
+  background-color: #1a1a1a;
+  display: table-row;
+  height: 75px;
 }
 
-/* FIX RESPONSIVE */
+
+.menu-footer-left {
+  color: white;
+}
+
+.menu-footer-left h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.menu-footer-left a {
+  color: grey;
+  text-decoration: none;
+}
+
+.menu-footer-left a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-footer-left ul {
+  padding-left: 0;
+}
+
+.menu-footer-left ul li {
+  padding-top: 8px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.menu-footer-right {
+  color: white;
+}
+
+.menu-footer-right h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.menu-footer-right a {
+  color: grey;
+  text-decoration: none;
+}
+
+.menu-footer-right a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+
+.menu-footer-right ul {
+  padding-left: 0;
+}
+
+.menu-footer-right ul li {
+  padding-top: 8px;
+  font-weight: 600;
+  list-style: none;
+}
+
+#copyright {
+  font-weight: 600;
+  color: white;
+}
 
 @media (max-width: 768px) {
-    
-    .goto-trick{
-        position: absolute;
-        top: 93vh;
-        left: 90%;
-        font-size: 2em;
-    }
+  #tricks-section {
+    padding: 150px 50px;
+    margin-top: -24px;
+  }
 
-    #tricks-section{
-        padding: 150px 50px;
-        margin-top: -24px;
-    }
+  .tricks-header {
+    height: 300px;
+    width: 100%;
+  }
 
-    .tricks-header{
-        height: 300px;
-        width: 100%;
-    }
+  .header-hero {
+    height: 93vh;
+  }
 
-    #tricks-image{
-        max-height: 500px;
-        padding: 0px 0px;
-    }
-    
-    #files-sticks{ 
+  .header-hero h1 {
+    font-size: 6vh;
+  }
+
+  #comment-form textarea {
+    width: 90%;
+  }
+
+  #tricks-image {
+    max-height: 500px;
+    padding: 0 0;
+  }
+
+  .trick-article-content {
+    text-align: center;
+  }
+
+  .trick-article-content h2 {
+    padding-top: 20px;
+  }
+
+  #files-sticks {
     margin-top: 20px;
     line-height: 0;
-    }
+  }
 
-    .edit-items{
+  .edit-items {
     position: relative;
     left: 35%;
     margin: 12px 12px;
     width: 80px;
     height: 40px;
-    border:solid 2px rgb(5, 125, 204);
+    border: solid 2px #057dcc;
     text-align: center;
-    }
+  }
 
-    .menu-mobil{
+  .menu-mobile {
     display: block;
-    overflow: clip;
     max-height: 76px;
     font-size: 1.5em;
-    }
+    background-color: #1a1a1a;
+  }
 
-    #tricks-section article{
+  #edit-media {
+    position: absolute;
+    width: 97%;
+    height: 97%;
+    background-color: #1a1a1aa9
+  }
+
+  #tricks-section article {
     padding: 0 22px 35px 22px;
-    }
+  }
 
-    .cross-close{
+  .cross-close {
     display: none;
     position: absolute;
     right: 0;
     padding: 12px;
     top: 300px;
-    }
+  }
 
-    #comment-form .btn{
+  #comment-form .btn {
     margin-top: 12px;
-    margin-left: 0px;
-    }
+    margin-left: 0;
+  }
 
-    .hide{
-        display: none;
-    }
-    
-    .see-media-btn{
-    display: flex;
-    }
-
-    .cross-close{
+  .hide {
     display: none;
-    }
+  }
+
+  .see-media-btn {
+    display: flex;
+  }
+
+  .cross-close {
+    display: none;
+  }
+
+  #files-sticks {
+    padding: 0px;
+  }
+
+  .trick-section-title h2 {
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+  }
+
+  .trick-section-btn a {
+    margin-left: 12px;
+  }
+
+  footer {
+    display: none;
+  }
+
+  .backto-trick {
+    top: -45px;
+  }
+
+  #comment h2 {
+    border: none;
+    text-align: center;
+  }
+
+  #comment {
+    padding: 0;
+  }
+
+  #create-comment h2 {
+    border: none;
+    text-align: center;
+  }
+
+  #edit-media .btn {
+    margin-top: 11vh;
+    margin-left: 14vh;
+    border: #b90a22;
+    font-weight: 600;
+    color: white;
+    background-color: #b90a22;
+  }
+
+  .trick-article-content h2 {
+    border: none;
+    text-align: center;
+  }
+
+  #collapsemedia {
+    padding-top: 22px;
+  }
+
+  .obj {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .admin-title {
+    background-color: transparent;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+  }
+
+  .goto-trick {
+  position: absolute;
+  top: 85vh;
+  left: 90%;
+  font-size: 2em;
+}
+
 }
 
 @media (max-width: 1668px) {
-    
-    #items-header-tricks{
-        display: none;
-    }
-    
-}
+  #items-header-tricks {
+    display: none;
+  }
 
-@media (min-width: 768px) {
+  #edit-media .btn {
+    margin-top: 11vh;
+    margin-left: 14vh;
+    border: #b90a22;
+    font-weight: 600;
+    color: white;
+    background-color: #b90a22;
+  }
 
-    .goto-trick{
-        position: absolute;
-        top: 102vh;
-        left: 96%;
-        font-size: 2em;
-    }
-
+  .admin-title {
+    margin-left: 5%;
+    width: 90%;
+  }
 }

@@ -31,7 +31,7 @@ class ForgotPassword
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_date;
+    private $created_at;
 
     public function getId(): ?int
     {
@@ -64,12 +64,12 @@ class ForgotPassword
 
     public function getCreatedDate(): ?\DateTimeInterface
     {
-        return $this->created_date;
+        return $this->created_at;
     }
 
-    public function setCreatedDate(\DateTimeInterface $created_date): self
+    public function setCreatedDate(\DateTimeInterface $created_at): self
     {
-        $this->created_date = $created_date;
+        $this->created_at = $created_at;
 
         return $this;
     }
