@@ -5,6 +5,8 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scrollbar-color: #1a1a1a grey;
+  scrollbar-width: 15px;
 }
 
 select{
@@ -72,6 +74,22 @@ color: #1a1a1a;
   bottom: 65px;
   position: fixed;
   z-index: 9999;
+}
+
+/* CUSTOM SCROLL BARRE */
+
+::-webkit-scrollbar {
+    height: 15px;
+    width: 15px;
+    background: grey;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
 }
 
 /* LOGIN */
