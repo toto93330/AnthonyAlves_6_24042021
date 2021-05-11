@@ -44,7 +44,6 @@ class HomeController extends AbstractController
 
         $moretricks = $this->limite * $moretricks;
 
-
         $tricks = $this->entityManager->getRepository(Trick::class)->findByMaxResult($moretricks);
 
         return $this->json($tricks);
