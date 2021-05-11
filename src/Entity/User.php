@@ -61,6 +61,16 @@ class User implements UserInterface
      */
     private $validate;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user")
+     */
+    private $comments;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Contributor::class, mappedBy="user")
+     */
+    private $contributors;
+
     public function __construct()
     {
         $this->token = new ArrayCollection();
@@ -212,6 +222,66 @@ class User implements UserInterface
     public function setValidate(bool $validate): self
     {
         $this->validate = $validate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contributor[]
+     */
+    public function getContributors(): Collection
+    {
+        return $this->contributors;
+    }
+
+    public function addContributor(Contributor $contributor): self
+    {
+        if (!$this->contributors->contains($contributor)) {
+            $this->contributors[] = $contributor;
+            $contributor->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContributor(Contributor $contributor): self
+    {
+        if ($this->contributors->removeElement($contributor)) {
+            // set the owning side to null (unless already changed)
+            if ($contributor->getUser() === $this) {
+                $contributor->setUser(null);
+            }
+        }
 
         return $this;
     }

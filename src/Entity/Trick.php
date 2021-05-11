@@ -56,6 +56,26 @@ class Trick
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Contributor::class, mappedBy="trick")
+     */
+    private $contributors;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $edited;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $edited_at;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $last_editor_id;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -149,6 +169,72 @@ class Trick
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Contributor[]
+     */
+    public function getContributors(): Collection
+    {
+        return $this->contributors;
+    }
+
+    public function addContributor(Contributor $contributor): self
+    {
+        if (!$this->contributors->contains($contributor)) {
+            $this->contributors[] = $contributor;
+            $contributor->setTrick($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContributor(Contributor $contributor): self
+    {
+        if ($this->contributors->removeElement($contributor)) {
+            // set the owning side to null (unless already changed)
+            if ($contributor->getTrick() === $this) {
+                $contributor->setTrick(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getEdited(): ?bool
+    {
+        return $this->edited;
+    }
+
+    public function setEdited(bool $edited): self
+    {
+        $this->edited = $edited;
+
+        return $this;
+    }
+
+    public function getEditedAt(): ?\DateTimeInterface
+    {
+        return $this->edited_at;
+    }
+
+    public function setEditedAt(\DateTimeInterface $edited_at): self
+    {
+        $this->edited_at = $edited_at;
+
+        return $this;
+    }
+
+    public function getLastEditorId(): ?int
+    {
+        return $this->last_editor_id;
+    }
+
+    public function setLastEditorId(int $last_editor_id): self
+    {
+        $this->last_editor_id = $last_editor_id;
 
         return $this;
     }
