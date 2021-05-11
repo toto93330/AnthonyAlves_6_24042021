@@ -76,6 +76,11 @@ class Trick
      */
     private $last_editor_id;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick")
+     */
+    private $images;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -235,6 +240,36 @@ class Trick
     public function setLastEditorId(int $last_editor_id): self
     {
         $this->last_editor_id = $last_editor_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setTrick($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getTrick() === $this) {
+                $image->setTrick(null);
+            }
+        }
 
         return $this;
     }
