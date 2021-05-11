@@ -61,6 +61,7 @@ class Image
         return $this;
     }
 
+
     public function getContant(): ?string
     {
         return $this->content;
@@ -69,6 +70,7 @@ class Image
     public function setContant(string $content): self
     {
         $this->content = $content;
+
 
         return $this;
     }
