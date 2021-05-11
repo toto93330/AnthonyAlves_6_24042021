@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -42,7 +44,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $register_date;
+    private $register_at;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,6 +55,15 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
+
+    public function __construct()
+    {
+        $this->token = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
+        $this->videos = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -152,14 +163,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRegisterDate(): ?\DateTimeInterface
+    public function getRegisterAt(): ?\DateTimeInterface
     {
-        return $this->register_date;
+        return $this->register_at;
     }
 
-    public function setRegisterDate(\DateTimeInterface $register_date): self
+    public function setRegisterAt(\DateTimeInterface $register_at): self
     {
-        $this->register_date = $register_date;
+        $this->register_at = $register_at;
 
         return $this;
     }
@@ -187,4 +198,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TrickRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,6 +55,14 @@ class Trick
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
+        $this->videos = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {

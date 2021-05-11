@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ForgotPasswordRepository;
+use App\Repository\ValidateUserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ForgotPasswordRepository::class)
+ * @ORM\Entity(repositoryClass=ValidateUserRepository::class)
  */
-class ForgotPassword
+class ValidateUser
 {
     /**
      * @ORM\Id
@@ -24,7 +24,7 @@ class ForgotPassword
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $token;
 
