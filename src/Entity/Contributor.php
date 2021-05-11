@@ -19,7 +19,7 @@ class Contributor
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="contributors")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
