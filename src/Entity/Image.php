@@ -62,12 +62,12 @@ class Image
     }
 
 
-    public function getContant(): ?string
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContant(string $content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 

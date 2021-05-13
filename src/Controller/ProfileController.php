@@ -25,6 +25,7 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * USER PROFILE (ROLES [USER])
      * @Route("/profile", name="profile")
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
@@ -32,7 +33,7 @@ class ProfileController extends AbstractController
 
 
         $user = $this->getUser();
-        $register_date = $user->getRegisterDate();
+        $register_date = $user->getRegisterAt();
 
         $form = $this->createForm(ProfileType::class, $user);
         $form->handleRequest($request);

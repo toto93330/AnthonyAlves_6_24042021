@@ -27,6 +27,7 @@ class ForgotPasswordController extends AbstractController
     }
 
     /**
+     * FORGOT PASSWORD SYSTEM (ROLES [ALL])
      * @Route("/forgot-password", name="forgot_password")
      */
     public function index(Request $request, MailerInterface $mailer): Response
@@ -70,6 +71,7 @@ class ForgotPasswordController extends AbstractController
     }
 
     /**
+     * VERIF TOKEN FOR FORGOT PASSWORD (ROLES [ALL])
      * @Route("/forgot-password/token/{token}", name="forgot_password_update")
      */
     public function update($token, Request $request, MailerInterface $mailer, UserPasswordEncoderInterface $encoder)

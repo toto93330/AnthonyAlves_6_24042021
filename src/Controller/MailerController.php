@@ -21,6 +21,7 @@ class MailerController extends AbstractController
     }
 
     /**
+     * MAILING FOR REGISTER (ROLES [ALL])
      * @Route("/mail-register", name="mail-register")
      */
     public function sendEmailForRegistration(MailerInterface $mailer)
@@ -31,6 +32,7 @@ class MailerController extends AbstractController
             $userfirstname = $this->session->get('user-firstname');
             $useremail = $this->session->get('user-email');
             $userpassword = $this->session->get('user-password');
+            $token = $this->session->get('user-token');
 
             $email = (new TemplatedEmail())
                 ->from('snowtricks666@gmail.com')
@@ -45,6 +47,8 @@ class MailerController extends AbstractController
             $this->session->remove('user-email');
             $this->session->remove('user-password');
             $this->session->remove('user-firstname');
+            $this->session->remove('user-token');
+
             //After redirect to route
             return $this->redirectToRoute('app_login');
         } else {
@@ -54,6 +58,7 @@ class MailerController extends AbstractController
 
 
     /**
+     * MAILING FORGOT PASSWORD (ROLES [ALL])
      * @Route("/mail-forgot-password", name="mail-forgot-password")
      */
     public function sendEmailForForgotPassword(MailerInterface $mailer)
@@ -88,6 +93,7 @@ class MailerController extends AbstractController
     }
 
     /**
+     * MAILING SENDED NEW PASSWORD AFTER FORGOTPASSWORD REQUEST VALIDATE (ROLES [ALL])
      * @Route("/mail-new-password", name="mail-new-password")
      */
     public function sendEmailForNewPassword(MailerInterface $mailer)
