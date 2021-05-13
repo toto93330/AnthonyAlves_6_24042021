@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ForgotPasswordRepository;
+use App\Repository\ContributorRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ForgotPasswordRepository::class)
+ * @ORM\Entity(repositoryClass=ContributorRepository::class)
  */
-class ForgotPassword
+class Contributor
 {
     /**
      * @ORM\Id
@@ -18,15 +18,15 @@ class ForgotPassword
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="contributors")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Trick::class, inversedBy="contributors")
      */
-    private $token;
+    private $trick;
 
     /**
      * @ORM\Column(type="datetime")
@@ -50,14 +50,14 @@ class ForgotPassword
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getTrick(): ?Trick
     {
-        return $this->token;
+        return $this->trick;
     }
 
-    public function setToken(string $token): self
+    public function setTrick(?Trick $trick): self
     {
-        $this->token = $token;
+        $this->trick = $trick;
 
         return $this;
     }

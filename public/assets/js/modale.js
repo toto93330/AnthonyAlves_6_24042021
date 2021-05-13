@@ -6,7 +6,7 @@ var nom, id;
 function openIndexModal(e, t) {
     e = e, t = t;
     var n = document.getElementById("modal-delect-trick");
-    document.documentElement.style.overflow = "hidden", n.style.display = "block", afficherNom(e), document.getElementById("modal-delect-trick").href = "tricks/detail/" + t + "/delect"
+    document.documentElement.style.overflow = "hidden", n.style.display = "block", afficherNom(e), document.getElementById("modal-delect-trick-link").href = "https://" + location.host + "/tricks/detail/" + t + "/delect"
 }
 
 function closeIndexModal() {

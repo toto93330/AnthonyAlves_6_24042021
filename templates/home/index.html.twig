@@ -5,15 +5,15 @@
 
     {% block modale_delect_trick %}
     <!-- START MODALE (REMOVE TRICK) -->
-   <div id="modal"
+   <div id="modal-delect-trick"
       style="background-color: #1a1a1a85;  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
       <div class="d-flex justify-content-center">
          <div id="modal-body" class="bg-light text-center p-2">
             <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i
                   class="fas fa-times"></i></a>
             <p class="p-2 modal-content bg-light">Are your sure to remove the trick: <span id="nom-du-trick"></span></p>
-            <a href="#" class="m-2 btn btn-sm trick-link" id="modal-delect-trick">YES</a>
-            <a onclick="closeIndexModal()" class="m-2 btn btn-sm trick-link" style="cursor: pointer;">NO</a>
+            <a href="#" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase" id="modal-delect-trick-link">YES</a>
+            <a onclick="closeIndexModal()" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase" style="cursor: pointer;">NO</a>
          </div>
       </div>
    </div>

@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     avatar_directory: '%kernel.project_dir%/public/uploads/avatar'
+    tricks_directory: '%kernel.project_dir%/public/uploads/tricks'
+    images_directory: '%kernel.project_dir%/public/uploads/images'
+    
 services:
     # default configuration for services in *this* file
     _defaults:

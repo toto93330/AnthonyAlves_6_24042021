@@ -19,7 +19,7 @@
                      <a onclick="openIndexModal('{{ trick.title }}',{{ trick.id }})" data="" style="cursor: pointer; padding-right:5px;" class="fas fa-trash-alt"></a>
                   </div>
                   <div class="tricks-title w-100 h-100 d-flex justify-content-center">
-                     <span class="align-self-center h1 fw-bold text-light"
+                     <span class="align-self-center text-center h1 fw-bold text-light"
                         style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:3em">{{trick.title}}</span>
                   </div>
                </div>
@@ -28,21 +28,31 @@
                   <i class="fas fa-times"></i>
                </a>
 
+               
+               {% if images != null and videos != null %}
                <!-- START VIEW MEDIA -->
                <div class="d-flex justify-content-around flex-wrap" id="files-sticks" style="margin-top:0px;">
                   <div class="justify-content-around flex-wrap" id="hide">
                      <div class="collapse d-md-block" id="collapsemedia">
 
                         <div class="d-flex justify-content-around flex-wrap">
-                           <span data-aos="flip-left" id="media-item">
-                              <img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}" alt="tricks">
+                           
+                           {% for image in images %}
+                              
+                                 <span data-aos="flip-left" id="media-item">
+                              <img src="{{ asset('uploads/images/')}}{{ image.content }}" alt="tricks">
                            </span>
-                           <span data-aos="flip-left" id="media-item">
-                              <img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}" alt="tricks">
-                           </span>
-                           <span data-aos="flip-left" id="media-item">
-                              <video controls src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"></video>
-                           </span>
+                              
+                                
+                           {% endfor %}
+                           
+
+                           {% for video in videos %}
+                              <span data-aos="flip-left" id="media-item">
+                              {{ video.embed|raw }}
+                              </span>   
+                           {% endfor %}
+                           
                         </div>
 
                      </div>
@@ -54,7 +64,7 @@
                      media</a>
                </div>
                <!-- END VIEW MEDIA -->
-
+               {% endif %}
                <hr style="background-color: grey;">
 
                <!-- START ARTICLE CONTENT -->
@@ -68,8 +78,10 @@
                      <span>Add on {{ trick.createdAt|date("d/m/Y") }}</span>
                      <span>Category : {{ trick.category }}</span>
                      <span><a href="#comment">10 Comments</a></span>
-                     <span><a onclick="openModalContributor()" style="cursor: pointer;">6 Contributors</a></span>
-                     <span>Edited on 15/04/2021 at 9h00</span>
+                     {% if trick.edited == 1 %}
+                     <span><a onclick="openModalContributor()" style="cursor: pointer;">{{ numberofcontributors }} Contributors</a></span>
+                     <span>Edited on {{ trick.editedAt|date("d/m/Y") }}</span>
+                     {% endif %}
                   </div>
 
                </article>
@@ -159,26 +171,12 @@
 
                <ul style="list-style: none; padding-left: 0; height:250px; width: 300px; overflow-y: scroll;"
                   class="modal-list">
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
+                  {% for contributor in contributors %}
+                  <li class="pt-3"><span class="user-avatar m-3"><img src="{{ asset('uploads/avatar/')}}{{contributor.avatar}}"
+                              alt=""></span>
                   </li>
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
-                  </li>
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
-                  </li>
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
-                  </li>
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
-                  </li>
-                  <li class="pt-3"><a href=""><span class="user-avatar m-3"><img src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
-                              alt=""></span></a>
-                  </li>
+                  {% endfor %}
                </ul>
-               
                <a onclick="closeModalContributor()" class="m-2 btn btn-sm trick-link">CLOSE</a>
             </p>
          </div>
@@ -198,7 +196,7 @@
             <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i
                   class="fas fa-times"></i></a>
             <p class="p-2 modal-content bg-light">Are your sure to remove the trick: <span id="nom-du-trick"></span></p>
-            <a href="#" class="m-2 btn btn-sm trick-link" id="modal-delect-trick">YES</a>
+            <a href="#" class="m-2 btn btn-sm trick-link" id="modal-delect-trick-link">YES</a>
             <a onclick="closeIndexModal()" class="m-2 btn btn-sm trick-link" style="cursor: pointer;">NO</a>
          </div>
       </div>

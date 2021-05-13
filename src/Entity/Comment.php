@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ForgotPasswordRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ForgotPasswordRepository::class)
+ * @ORM\Entity(repositoryClass=CommentRepository::class)
  */
-class ForgotPassword
+class Comment
 {
     /**
      * @ORM\Id
@@ -18,20 +18,26 @@ class ForgotPassword
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Trick::class)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $token;
+    private $trick;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
 
     public function getId(): ?int
     {
@@ -50,14 +56,14 @@ class ForgotPassword
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getTrick(): ?Trick
     {
-        return $this->token;
+        return $this->trick;
     }
 
-    public function setToken(string $token): self
+    public function setTrick(?Trick $trick): self
     {
-        $this->token = $token;
+        $this->trick = $trick;
 
         return $this;
     }
@@ -70,6 +76,18 @@ class ForgotPassword
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }
