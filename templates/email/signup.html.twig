@@ -1,6 +1,8 @@
 <div>
 	<h1>Thanks for your registration</h1>
-	<p>Hi {{ app.session.get('user-firstname') }} and thank you for registering on snowtricks.com,<br> here are your login details :</p>	
+	<p>Hi {{ app.session.get('user-firstname') }} and thank you for registering on snowtricks.com,<br> please click on link for actived your account :</p>
+	<p><a href="{{ app.session.get('user-token') }}">Validate Your Account</a></p>
+	<p>Your account informations :</p>
 	<p>Email :</p>
 	<p>{{ app.session.get('user-email') }}</p>
 	<p>password :</p>
