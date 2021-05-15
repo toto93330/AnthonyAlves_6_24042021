@@ -3,76 +3,84 @@
 
 {% block content %}
 
-    {% block modale_delect_trick %}
-    <!-- START MODALE (REMOVE TRICK) -->
-   <div id="modal-delect-trick"
-      style="background-color: #1a1a1a85;  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
-      <div class="d-flex justify-content-center">
-         <div id="modal-body" class="bg-light text-center p-2">
+{% block modale_delect_trick %}
+<!-- START MODALE (REMOVE TRICK) -->
+<div id="modal-delect-trick"
+    style="background-color: #1a1a1a85;  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
+    <div class="d-flex justify-content-center">
+        <div id="modal-body" class="bg-light text-center p-2">
             <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i
-                  class="fas fa-times"></i></a>
+                    class="fas fa-times"></i></a>
             <p class="p-2 modal-content bg-light">Are your sure to remove the trick: <span id="nom-du-trick"></span></p>
-            <a href="#" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase" id="modal-delect-trick-link">YES</a>
-            <a onclick="closeIndexModal()" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase" style="cursor: pointer;">NO</a>
-         </div>
-      </div>
-   </div>
-   <!-- END MODALE (REMOVE TRICK) -->
-    {% endblock %}
+            <a href="#" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase"
+                id="modal-delect-trick-link">YES</a>
+            <a onclick="closeIndexModal()" class="m-2 btn btn-outline-info btn-sm trick-link text-uppercase"
+                style="cursor: pointer;">NO</a>
+        </div>
+    </div>
+</div>
+<!-- END MODALE (REMOVE TRICK) -->
+{% endblock %}
 
-    <!-- START HEADER HERO -->
-   <div class="px-4 py-lg-5 py-md-5 py-3 text-center header-hero border-bottom"
-      style="background-image: url('{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}');">
-      <div class="w-100">
-         <h1 class="display-5 fw-bold py-5 text-uppercase" data-aos="zoom-in">
+<!-- START HEADER HERO -->
+<div class="px-4 py-lg-5 py-md-5 py-3 text-center header-hero border-bottom"
+    style="background-image: url('{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}');">
+    <div class="w-100">
+        <h1 class="display-5 fw-bold py-5 text-uppercase" data-aos="zoom-in">
             Snowtricks<br>
             <small style="font-size:0.5em;">The snow must go on</small>
-         </h1>
-      </div>
-      <span class="goto-trick"><a href="#trick"><i class="fas fa-arrow-down"></i></a></span>
-   </div>
-   <!-- END HEADER HERO -->
+        </h1>
+    </div>
+    <span class="goto-trick"><a href="#trick"><i class="fas fa-arrow-down"></i></a></span>
+</div>
+<!-- END HEADER HERO -->
 
-    <!-- START VIEW TRICKS -->
-    <section class="py-5 px-5 bg-light" id="trick">
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3" id="js-moretricks-content">
+<!-- START VIEW TRICKS -->
+<section class="py-5 px-5 bg-light" id="trick">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3" id="js-moretricks-content">
 
-            {% for trick in tricks %}
-                 <div class="col" data-aos="flip-left" id="js-trick">
-                <div class="card shadow-sm">
-                    <img class="card-img-top home" style="height: 241px; object-fit: cover;" src="{{ asset('uploads/tricks/')}}{{ trick.imageCard }}" alt="Trick">
-                    <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
-                        <div class="col">
-                            <div class="d-flex justify-content-between">
-                                <span class="trick-name">
-                                    <a class="btn btn-outline-info btn-sm trick-link text-uppercase" href="/trick/{{ trick.slug }}">{{ trick.title }}</a>
-                                </span>
-                                <span class="trick-edit">
-                                    <a href="/admin/trick/{{ trick.slug }}"><i class="fas fa-pencil-alt"></i></a> |
-                                    <a onclick="openIndexModal('{{ trick.title }}',{{ trick.id }})" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>
-                                </span>
-                            </div>
+        {% for trick in tricks %}
+        <div class="col" data-aos="flip-left" id="js-trick">
+            <div class="card shadow-sm">
+                <img class="card-img-top home" style="height: 241px; object-fit: cover;"
+                    src="{{ asset('uploads/tricks/')}}{{ trick.imageCard }}" alt="Trick">
+                <div class="card-body row row-cols-12 row-cols-sm-12 row-cols-md-12">
+                    <div class="col">
+                        <div class="d-flex justify-content-between">
+                            <span class="trick-name">
+                                <a class="btn btn-outline-info btn-sm trick-link text-uppercase"
+                                    href="/trick/{{ trick.slug }}">{{ trick.title }}</a>
+                            </span>
+                            <span class="trick-edit">
+                                <a href="/admin/trick/{{ trick.slug }}"><i class="fas fa-pencil-alt"></i></a> |
+                                <a onclick="openIndexModal('{{ trick.title }}',{{ trick.id }})" data=""
+                                    style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-           
-
         </div>
+        {% endfor %}
 
-        <!-- Load more -->
-        <div class="py-5 d-flex justify-content-center" id="js-moretricks-btn" ><a class="load-more-btn btn-outline-info btn-sm trick-link" onclick="onClickMoreTricks()"><img src="{{asset('assets/img/Loading.gif')}}" alt="loading" width="40px" id="js-loading-img" style="display: none;">Load more</a></div>
-        
-        <!-- back to trick -->
-        <span class="backto-trick"><a href="#trick"><i class="fas fa-arrow-up"></i></a></span>
 
-    </section>
-    <!-- END VIEW TRICKS -->
+    </div>
 
-    {% block javascript %}
-    <script src="{{ asset('assets/js/modale.js') }}"></script>
-    <script src="{{ asset('assets/js/ajax.js') }}"></script>
-    {% endblock %}
+    <!-- Load more -->
+    <div class="py-5 d-flex justify-content-center" id="js-moretricks-btn"><a
+            class="load-more-btn btn-outline-info btn-sm trick-link" onclick="onClickMoreTricks()"><img
+                src="{{asset('assets/img/Loading.gif')}}" alt="loading" width="40px" id="js-loading-img"
+                style="display: none;">Load more</a></div>
+
+    <!-- back to trick -->
+    <span class="backto-trick"><a href="#trick"><i class="fas fa-arrow-up"></i></a></span>
+
+</section>
+<!-- END VIEW TRICKS -->
+
+{% block javascript %}
+<script src="{{ asset('assets/js/modale.js') }}"></script>
+<script src="{{ asset('assets/js/ajax.js') }}"></script>
+{% endblock %}
 
 {% endblock %}

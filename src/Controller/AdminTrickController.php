@@ -27,7 +27,7 @@ class AdminTrickController extends AbstractController
     }
 
     /**
-     * EDIT TRICKS FOR USER
+     * EDIT TRICKS FOR USER (ROLES [USER])
      * @Route("/admin/trick/{slug}", name="edit-trick")
      */
     public function index(Request $request, $slug): Response

@@ -39,6 +39,11 @@ class Comment
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $deactived;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +93,18 @@ class Comment
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getDeactived(): ?bool
+    {
+        return $this->deactived;
+    }
+
+    public function setDeactived(bool $deactived): self
+    {
+        $this->deactived = $deactived;
 
         return $this;
     }

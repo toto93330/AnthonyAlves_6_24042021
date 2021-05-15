@@ -2,15 +2,21 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Category;
-use App\Entity\ForgotPassword;
-use App\Entity\Trick;
 use App\Entity\User;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\Image;
+use App\Entity\Trick;
+use App\Entity\Video;
+use App\Entity\Comment;
+use App\Entity\Category;
+use App\Entity\ValidateUser;
+use App\Entity\ForgotPassword;
+use App\Controller\Admin\TrickCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -19,7 +25,8 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        $routeBuilder = $this->get(AdminUrlGenerator::class);
+        return $this->redirect($routeBuilder->setController(TrickCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -30,11 +37,18 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Users', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Forgot Password Tokens', 'fas fa-list', ForgotPassword::class);
-        yield MenuItem::linkToCrud('Tricks', 'fas fa-list', Trick::class);
-        yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
+        yield MenuItem::section('Users Utility', 'fas fa-users');
+        yield MenuItem::linkToCrud('Users', '', User::class);
+        yield MenuItem::linkToCrud('Forgot Password Tokens', '', ForgotPassword::class);
+        yield MenuItem::linkToCrud('Validate users Tokens', '', ValidateUser::class);
+        yield MenuItem::section('Tricks Utility', 'fas fa-snowboarding');
+        yield MenuItem::linkToCrud('Tricks', '', Trick::class);
+        yield MenuItem::linkToCrud('Categorys', '', Category::class);
+        yield MenuItem::section('Comments Utility', 'fas fa-comment');
+        yield MenuItem::linkToCrud('Comments', '', Comment::class);
+        yield MenuItem::section('Medias Utility', 'fas fa-photo-video');
+        yield MenuItem::linkToCrud('Images', '', Image::class);
+        yield MenuItem::linkToCrud('Videos', '', Video::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

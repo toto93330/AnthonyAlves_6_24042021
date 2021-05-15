@@ -11,7 +11,7 @@
 
 
    {{ form_start(form) }}
-      {{ form_widget(form._token) }}
+   {{ form_widget(form._token) }}
    <section id="tricks-section" class="admin-trick">
       <div class="content-tricks bg-light">
          <div class="bg-light">
@@ -48,17 +48,18 @@
 
                         {% for image in images %}
                         <span data-aos="flip-left" id="media-item" class="img-{{image.id}}">
-                           <div id="edit-media"><a onclick="onClickRemoveMedia('image', {{ image.id }})" class="btn">Delect</a></div><img
-                              src="{{ asset('uploads/images/')}}{{ image.content }}"
+                           <div id="edit-media"><a onclick="onClickRemoveMedia('image', {{ image.id }})"
+                                 class="btn">Delect</a></div><img src="{{ asset('uploads/images/')}}{{ image.content }}"
                               alt="tricks">
                         </span>
                         {% endfor %}
 
-                     
+
 
                         {% for video in videos %}
                         <span data-aos="flip-left" id="media-item" class="vid-{{video.id}}">
-                           <div id="edit-media"><a onclick="onClickRemoveMedia('video', {{ video.id }})" class="btn">Delect</a></div>
+                           <div id="edit-media"><a onclick="onClickRemoveMedia('video', {{ video.id }})"
+                                 class="btn">Delect</a></div>
                            {{ video.embed|raw }}
                         </span>
                         {% endfor %}
@@ -75,7 +76,7 @@
                </a>
             </div>
             <hr style="background-color: grey;">
-         {% endif %}
+            {% endif %}
             <div id="upload-image">
                <h2 class="mb-3">Upload Image Card</h2>
                <div class="d-flex justify-content-center flex-column flex-wrap w-100">
@@ -125,7 +126,7 @@
                <div class="d-flex justify-content-center flex-column flex-wrap w-100">
                   <button type="button" id="add-video" onclick="onClickAddElementVideo()" class="btn"
                      class="text-center"> Add video </button>
-                  
+
                   <div id="admin_trick_videos"
                      data-prototype="<fieldset class=&quot;form-group&quot;><div id=&quot;admin_trick_videos___name__&quot;><div class=&quot;form-group&quot;><label for=&quot;admin_trick_videos___name___embed&quot;>Embed</label><textarea id=&quot;admin_trick_videos___name___embed&quot; name=&quot;admin_trick[videos][__name__][embed]&quot; class=&quot;form-control&quot;></textarea></div></div></fieldset>">
                   </div>

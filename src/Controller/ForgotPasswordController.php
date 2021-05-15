@@ -30,7 +30,7 @@ class ForgotPasswordController extends AbstractController
      * FORGOT PASSWORD SYSTEM (ROLES [ALL])
      * @Route("/forgot-password", name="forgot_password")
      */
-    public function index(Request $request, MailerInterface $mailer): Response
+    public function index(Request $request): Response
     {
         if ($this->getUser()) {
             return $this->redirectToRoute('home');
@@ -50,7 +50,7 @@ class ForgotPasswordController extends AbstractController
                 $forgot_password = new ForgotPassword();
                 $forgot_password->setUser($user);
                 $forgot_password->setToken(uniqid());
-                $forgot_password->setCreatedDate(new \DateTime());
+                $forgot_password->setCreatedAt(new \DateTime());
                 $this->entityManager->persist($forgot_password);
                 $this->entityManager->flush();
 
@@ -74,7 +74,7 @@ class ForgotPasswordController extends AbstractController
      * VERIF TOKEN FOR FORGOT PASSWORD (ROLES [ALL])
      * @Route("/forgot-password/token/{token}", name="forgot_password_update")
      */
-    public function update($token, Request $request, MailerInterface $mailer, UserPasswordEncoderInterface $encoder)
+    public function update($token, UserPasswordEncoderInterface $encoder)
     {
         $token = $this->entityManager->getRepository(ForgotPassword::class)->findOneBy(['token' => $token]);
 

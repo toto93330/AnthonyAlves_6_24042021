@@ -20,21 +20,18 @@ class CommentRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Comment[] Returns an array of Comment objects
+    //  * @return Comment[] Returns an array of Comment objects with max
     //  */
-    /*
-    public function findByExampleField($value)
+    public function findByMaxResult($maxresult, $trick)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('c.trick = :val', 'c.deactived = 0')
+            ->setParameter('val', $trick)
+            ->orderBy('c.created_at', 'DESC')
+            ->setMaxResults($maxresult)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Comment

@@ -24,7 +24,6 @@ class TrickCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        $today = new \DateTime('NOW');
 
         return [
             TextField::new('title'),
