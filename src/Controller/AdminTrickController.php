@@ -225,7 +225,7 @@ class AdminTrickController extends AbstractController
             $slug = $slugger->slug($form->getData()->getTitle());
             $slugverif = $this->entityManager->getRepository(Trick::class)->findBy(['slug' => $slug]);
             if ($slugverif) {
-                $this->addFlash('notify_error', 'This trick name, allready exist!');
+                $this->addFlash('notify_error', 'This trick, allready exist!');
                 return $this->redirectToRoute('add-new-trick');
             }
             $trick->setTitle($form->getData()->getTitle());

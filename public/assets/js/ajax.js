@@ -116,7 +116,7 @@ function onClickMoreComments() {
   var xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
-    console.log(this); // debug
+
     if (this.readyState == 4 && this.status == 200) {
 
       var data = this.response;
@@ -125,7 +125,6 @@ function onClickMoreComments() {
 
 
       if (data.length <= 5 || w >= data.length) {
-        console.log("display none");
         z.style.display = "none";
         z.innerHTML = '<p class="text-center"> Sorry snowborder, No more comments for moments, <br><a href="#create-comment">Create new comment</a> </p>';
         return;
@@ -135,7 +134,7 @@ function onClickMoreComments() {
       setTimeout(timeOut(), 3000);
 
       function timeOut() {
-       
+
         x.style.display = "none";
       }
 
@@ -145,19 +144,19 @@ function onClickMoreComments() {
 
         console.log(date)
 
-         y.innerHTML += '<div class="comment d-flex justify-content-left align-items-center" id="js-comment" data-aos="flip-left">'+
-                  '<span class="user-avatar m-3"><img '
-                        +'src="/uploads/avatar/'+ data[i].user.avatar +'"'
-                        +'alt=""></span>'
-                  +'<span class="user-comment m-3">'+ data[i].content +'<br><span'
-                        +'class="comment-info"> Created by '+ data[i].user.firstname +' on '+ date.toLocaleDateString() +'</span>'
-                  +'</span>'
-               +'</div>';
+        y.innerHTML += '<div class="comment d-flex justify-content-left align-items-center" id="js-comment" data-aos="flip-left">' +
+          '<span class="user-avatar m-3"><img ' +
+          'src="/uploads/avatar/' + data[i].user.avatar + '"' +
+          'alt=""></span>' +
+          '<span class="user-comment m-3">' + data[i].content + '<br><span' +
+          'class="comment-info"> Created by ' + data[i].user.firstname + ' on ' + date.toLocaleDateString() + '</span>' +
+          '</span>' +
+          '</div>';
       }
     }
   };
 
-  var url = protocol+"//"+host+"/ajax/message/"+this.comments+"/trick/"+slug;
+  var url = protocol + "//" + host + "/ajax/message/" + this.comments + "/trick/" + slug;
 
 
   xhr.open("GET", url);
