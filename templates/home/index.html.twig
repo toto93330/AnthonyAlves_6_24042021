@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 {% block modale_delect_trick %}
 <!-- START MODALE (REMOVE TRICK) -->
 <div id="modal-delect-trick"
@@ -75,6 +76,7 @@
     <!-- back to trick -->
     <span class="backto-trick"><a href="#trick"><i class="fas fa-arrow-up"></i></a></span>
 
+
 </section>
 <!-- END VIEW TRICKS -->
 
@@ -82,5 +84,14 @@
 <script src="{{ asset('assets/js/modale.js') }}"></script>
 <script src="{{ asset('assets/js/ajax.js') }}"></script>
 {% endblock %}
+=======
+    </section>
+    <!-- END VIEW TRICKS -->
+
+    {% block javascript %}
+    <script src="{{ asset('assets/js/modale.js') }}"></script>
+    <script src="{{ asset('assets/js/ajax.js') }}"></script>
+    {% endblock %}
+>>>>>>> 2_finish_entity
 
 {% endblock %}

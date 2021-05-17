@@ -25,7 +25,11 @@ function onClickMoreTricks() {
 
       if (data.length <= 10 || w >= data.length) {
         z.style.display = "none";
+<<<<<<< HEAD
         z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="/add-new-trick">Create more tricks for community</a> </p>';
+=======
+        z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
+>>>>>>> 2_finish_entity
         return;
       }
 
@@ -60,7 +64,11 @@ function onClickMoreTricks() {
           '"><i class="fas fa-pencil-alt"></i></a> | ' +
           '<a onclick="openIndexModal(\'' +
           data[i].title +
+<<<<<<< HEAD
           '\', ' + data[i].id + ')" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
+=======
+          '\', '+ data[i].id +')" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
+>>>>>>> 2_finish_entity
           "</span>" +
           "</div>" +
           "</div>" +
@@ -81,6 +89,7 @@ function onClickMoreTricks() {
 
 function onClickRemoveMedia(mediatype, id) {
 
+<<<<<<< HEAD
   if (mediatype == 'image') {
 
     var elem = document.querySelector(".img-" + id + "");
@@ -163,4 +172,29 @@ function onClickMoreComments() {
   xhr.open("GET", url);
   xhr.responseType = "json";
   xhr.send();
+=======
+if(mediatype == 'image'){
+
+var elem = document.querySelector(".img-"+id+"");
+elem.style.display = 'none';
+
+ var xhr = new XMLHttpRequest();
+  var url = "https://127.0.0.1:8000" + "/medias/type/"+mediatype+"/"+id+"";
+  xhr.open("GET", url);
+  xhr.send();
+}
+
+if(mediatype == 'video'){
+var elem = document.querySelector(".vid-"+id+"");
+elem.style.display = 'none';
+
+
+var xhr = new XMLHttpRequest();
+var url = "https://127.0.0.1:8000" + "/medias/type/"+mediatype+"/"+id+"";
+xhr.open("GET", url);
+xhr.send();
+}
+
+
+>>>>>>> 2_finish_entity
 }

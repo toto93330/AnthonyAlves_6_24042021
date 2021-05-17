@@ -94,10 +94,12 @@ class Trick
         $this->images = new ArrayCollection();
     }
 
+
     public function __toString()
     {
         return $this->getTitle();
     }
+
 
     public function getId(): ?int
     {

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+<<<<<<< HEAD
 use App\Entity\User;
 use App\Entity\Image;
 use App\Entity\Trick;
@@ -9,6 +10,13 @@ use App\Entity\Video;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Entity\Contributor;
+=======
+use App\Entity\Contributor;
+use App\Entity\Image;
+use App\Entity\Trick;
+use App\Entity\User;
+use App\Entity\Video;
+>>>>>>> 2_finish_entity
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,11 +54,15 @@ class TrickController extends AbstractController
             $data = $this->entityManager->getRepository(User::class)->findBy(array('id' => $contributors[$i]->getUser()->getId()));
             $contributor += [$i => $data[0]];
         }
+<<<<<<< HEAD
         $numberofcontributors  = (count($contributors));
+=======
+>>>>>>> 2_finish_entity
         //3. TAKE MEDIAS
         $videos = $this->entityManager->getRepository(Video::class)->findBy(array('trick' => $trick));
         $images = $this->entityManager->getRepository(Image::class)->findBy(array('trick' => $trick));
 
+<<<<<<< HEAD
         //4.ADD NEW COMMENT
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -77,11 +89,16 @@ class TrickController extends AbstractController
         $maxresult = 5;
         $comments = $this->entityManager->getRepository(Comment::class)->findByMaxResult($maxresult, $trick[0]);
         $numberofcomments = count($this->entityManager->getRepository(Comment::class)->findBy(['trick' => $trick, 'actived' => 1]));
+=======
+        //4.TAKE COMMENT
+        $numberofcontributors  = (count($contributors));
+>>>>>>> 2_finish_entity
 
         return $this->render('trick/index.html.twig', [
             'tricks' => $trick,
             'images' => $images,
             'videos' => $videos,
+<<<<<<< HEAD
             'form' => $form->createView(),
             'contributors' => $contributor,
             'comments' => $comments,
@@ -113,6 +130,10 @@ class TrickController extends AbstractController
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
             }
+=======
+            'contributors' => $contributor,
+            'numberofcontributors' => $numberofcontributors,
+>>>>>>> 2_finish_entity
         ]);
 
         // For instance, return a Response with encoded Json
