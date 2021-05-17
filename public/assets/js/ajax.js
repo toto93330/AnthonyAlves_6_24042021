@@ -26,10 +26,14 @@ function onClickMoreTricks() {
       if (data.length <= 10 || w >= data.length) {
         z.style.display = "none";
 <<<<<<< HEAD
+<<<<<<< HEAD
         z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="/add-new-trick">Create more tricks for community</a> </p>';
 =======
         z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
 >>>>>>> 2_finish_entity
+=======
+        z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
+>>>>>>> 1_make_uml
         return;
       }
 
@@ -65,10 +69,14 @@ function onClickMoreTricks() {
           '<a onclick="openIndexModal(\'' +
           data[i].title +
 <<<<<<< HEAD
+<<<<<<< HEAD
           '\', ' + data[i].id + ')" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
 =======
           '\', '+ data[i].id +')" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
 >>>>>>> 2_finish_entity
+=======
+          '\', '+ data[i].id +')" data="" style="cursor: pointer;"><i class="fas fa-trash-alt"></i></a>' +
+>>>>>>> 1_make_uml
           "</span>" +
           "</div>" +
           "</div>" +
@@ -89,6 +97,7 @@ function onClickMoreTricks() {
 
 function onClickRemoveMedia(mediatype, id) {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   if (mediatype == 'image') {
 
@@ -173,6 +182,8 @@ function onClickMoreComments() {
   xhr.responseType = "json";
   xhr.send();
 =======
+=======
+>>>>>>> 1_make_uml
 if(mediatype == 'image'){
 
 var elem = document.querySelector(".img-"+id+"");
@@ -196,5 +207,8 @@ xhr.send();
 }
 
 
+<<<<<<< HEAD
 >>>>>>> 2_finish_entity
+=======
+>>>>>>> 1_make_uml
 }

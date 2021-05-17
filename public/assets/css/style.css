@@ -1012,6 +1012,8 @@ footer {
   }
 
   #edit-media .btn {
+    margin-top: 11vh;
+    margin-left: 14vh;
     border: #b90a22;
     font-weight: 600;
     color: white;

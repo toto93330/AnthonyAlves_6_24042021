@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use App\Entity\User;
 use App\Entity\Image;
 use App\Entity\Trick;
@@ -17,6 +18,13 @@ use App\Entity\Trick;
 use App\Entity\User;
 use App\Entity\Video;
 >>>>>>> 2_finish_entity
+=======
+use App\Entity\Contributor;
+use App\Entity\Image;
+use App\Entity\Trick;
+use App\Entity\User;
+use App\Entity\Video;
+>>>>>>> 1_make_uml
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,13 +63,17 @@ class TrickController extends AbstractController
             $contributor += [$i => $data[0]];
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         $numberofcontributors  = (count($contributors));
 =======
 >>>>>>> 2_finish_entity
+=======
+>>>>>>> 1_make_uml
         //3. TAKE MEDIAS
         $videos = $this->entityManager->getRepository(Video::class)->findBy(array('trick' => $trick));
         $images = $this->entityManager->getRepository(Image::class)->findBy(array('trick' => $trick));
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         //4.ADD NEW COMMENT
         $comment = new Comment();
@@ -93,16 +105,24 @@ class TrickController extends AbstractController
         //4.TAKE COMMENT
         $numberofcontributors  = (count($contributors));
 >>>>>>> 2_finish_entity
+=======
+        //4.TAKE COMMENT
+        $numberofcontributors  = (count($contributors));
+>>>>>>> 1_make_uml
 
         return $this->render('trick/index.html.twig', [
             'tricks' => $trick,
             'images' => $images,
             'videos' => $videos,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'form' => $form->createView(),
             'contributors' => $contributor,
             'comments' => $comments,
             'numberofcomments' => $numberofcomments,
+=======
+            'contributors' => $contributor,
+>>>>>>> 1_make_uml
             'numberofcontributors' => $numberofcontributors,
         ]);
     }
