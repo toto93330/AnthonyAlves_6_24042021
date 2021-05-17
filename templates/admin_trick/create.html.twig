@@ -16,18 +16,16 @@
       <div class="content-tricks bg-light">
          <div class="bg-light">
 
-            {% for trick in tricks %}
 
             <div class="tricks-header"
-               style="background-image: url('{{ asset('uploads/tricks/') }}{{trick.imageCard}}'); background-size: cover;">
+               style="background-image: url('{{ asset("assets/img/a4d6427411fadcacd3ad6e8c601af215.jpg") }}'); background-size: cover;">
 
                <label for="upload">
                   <div id="preview"></div>
                </label>
-               <div class="admin-edit float-left">
 
-                  <label for="admin_trick_image_card" style="cursor:pointer;"><i class="far fa-image"></i></label>
-                  <a onclick="openIndexModal('{{trick.title}}',{{trick.id}})"><i class="fas fa-trash-alt"></i></a>
+               <div class="admin-edit float-left">
+                  <label for="create_trick_image_card" style="cursor:pointer;"><i class="far fa-image"></i></label>
                </div>
 
                <div class="tricks-title w-100 h-100 d-flex justify-content-center">
@@ -38,51 +36,13 @@
 
             </div>
 
-            {% if images != null and videos != null %}
-            <a data-bs-toggle="collapse" href="#collapsemedia" aria-expanded="false" aria-controls="collapse"
-               style="color: red;" class="cross-close"><i class="fas fa-times"></i></a>
-            <div class="d-flex justify-content-around flex-wrap" id="files-sticks" style="margin-top:0px;">
-               <div class="justify-content-around flex-wrap" id="hide">
-                  <div class="collapse d-md-block" id="collapsemedia">
-                     <div class="d-flex justify-content-around flex-wrap">
-
-                        {% for image in images %}
-                        <span data-aos="flip-left" id="media-item" class="img-{{image.id}}">
-                           <div id="edit-media"><a onclick="onClickRemoveMedia('image', {{ image.id }})"
-                                 class="btn">Delect</a></div><img src="{{ asset('uploads/images/')}}{{ image.content }}"
-                              alt="tricks">
-                        </span>
-                        {% endfor %}
-
-
-
-                        {% for video in videos %}
-                        <span data-aos="flip-left" id="media-item" class="vid-{{video.id}}">
-                           <div id="edit-media"><a onclick="onClickRemoveMedia('video', {{ video.id }})"
-                                 class="btn">Delect</a></div>
-                           {{ video.embed|raw }}
-                        </span>
-                        {% endfor %}
-
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <div class="d-flex justify-content-around flex-wrap">
-               <a class="btn see-media-btn my-3" id="js-btn-see-media" data-bs-toggle="collapse" href="#collapsemedia"
-                  role="button" aria-expanded="false" aria-controls="collapsemedia">
-                  See media
-               </a>
-            </div>
-            <hr style="background-color: grey;">
-            {% endif %}
+            
             <div id="upload-image">
                <h2 class="mb-3">Upload Image Card</h2>
                <div class="d-flex justify-content-center flex-column flex-wrap w-100">
 
                   {{ form_widget(form.image_card) }}
-                  <label for="admin_trick_image_card" class="btn" class="text-center">Upload File</label><br>
+                  <label for="create_trick_image_card" class="btn" class="text-center">Upload File</label><br>
                   <small>(.jpg, .jpeg, .gif, .png).</small><br>
 
                </div>
@@ -113,7 +73,7 @@
                <div class="d-flex justify-content-center flex-column flex-wrap w-100">
 
                   {{ form_widget(form.images) }}
-                  <label for="admin_trick_images" class="btn" class="text-center">Upload File</label><br>
+                  <label for="create_trick_images" class="btn" class="text-center">Upload File</label><br>
                   <small>(.jpg, .jpeg, .gif, .png).</small><br>
 
                </div>
@@ -146,31 +106,10 @@
 <!-- END SECTION ADMIN TRICK -->
 
 {{ form_end(form, {render_rest:false}) }}
-{% endfor %}
 {% endblock %}
 
 
 {% block javascript %}
 <script src="{{ asset('assets/js/script.js') }}"></script>
-<script src="{{ asset('assets/js/modale.js') }}"></script>
 <script src="{{ asset('assets/js/ajax.js') }}"></script>
-{% endblock %}
-
-{% block modale_delect_trick %}
-
-<!-- START MODALE (REMOVE TRICK) -->
-<div id="modal-delect-trick"
-   style="background-color: #1a1a1a85;  width: 100%; height: 100%; position:fixed; display:none; z-index:99999; padding-top:25%;">
-   <div class="d-flex justify-content-center">
-      <div id="modal-body" class="bg-light text-center p-2">
-         <a onclick="closeIndexModal()" style="color: red; cursor:pointer;" class="close-modal"><i
-               class="fas fa-times"></i></a>
-         <p class="p-2 modal-content bg-light">Are your sure to remove the trick: <span id="nom-du-trick"></span></p>
-         <a href="#" class="m-2 btn btn-sm trick-link" id="modal-delect-trick-link">YES</a>
-         <a onclick="closeIndexModal()" class="m-2 btn btn-sm trick-link" style="cursor: pointer;">NO</a>
-      </div>
-   </div>
-</div>
-<!-- END MODALE (REMOVE TRICK) -->
-
 {% endblock %}

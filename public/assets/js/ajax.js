@@ -23,11 +23,9 @@ function onClickMoreTricks() {
       var data = this.response;
       this.tricks = parseInt(this.tricks) + parseInt(1);
 
-
       if (data.length <= 10 || w >= data.length) {
-        console.log("display none");
         z.style.display = "none";
-        z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="">Create more tricks for community</a> </p>';
+        z.innerHTML = '<p class="text-center"> Sorry snowborder, No more tricks for moments, <br><a href="/add-new-trick">Create more tricks for community</a> </p>';
         return;
       }
 
@@ -147,7 +145,7 @@ function onClickMoreComments() {
 
         console.log(date)
 
-         y.innerHTML += '<div class="comment d-flex justify-content-center align-items-center" id="js-comment" data-aos="flip-left">'+
+         y.innerHTML += '<div class="comment d-flex justify-content-left align-items-center" id="js-comment" data-aos="flip-left">'+
                   '<span class="user-avatar m-3"><img '
                         +'src="/uploads/avatar/'+ data[i].user.avatar +'"'
                         +'alt=""></span>'

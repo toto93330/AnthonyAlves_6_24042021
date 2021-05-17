@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Trick;
 use App\Form\ProfileType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -95,10 +96,16 @@ class ProfileController extends AbstractController
         $postedtricks = $this->entityManager->getRepository(Trick::class)->findBy(array('author' => $user->getId()));
         $postedtricks = count($postedtricks);
 
+
+        // Count coomment tricks
+        $commentedtricks = $this->entityManager->getRepository(Comment::class)->findBy(array('user' => $user->getId()));
+        $commentedtricks = count($commentedtricks);
+
         return $this->render('profile/index.html.twig', [
             'regsiter_date' => $register_date,
             'form' => $form->createView(),
             'postedtricks' => $postedtricks,
+            'commentedtricks' => $commentedtricks,
         ]);
     }
 

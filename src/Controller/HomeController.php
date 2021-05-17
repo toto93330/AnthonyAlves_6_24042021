@@ -64,6 +64,7 @@ class HomeController extends AbstractController
             }
         ]);
 
+
         // For instance, return a Response with encoded Json
         return new Response($jsonObject, 200, ['Content-Type' => 'application/json']);
     }

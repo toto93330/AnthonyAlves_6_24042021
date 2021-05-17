@@ -124,9 +124,9 @@
             <!-- START COMMENTS -->
             <div id="comment" class="py-3">
                <h2 style="color: #1a1a1a; font-weight: 700;">Comments</h2>
-               <div id="js-comments-content">
+               <div id="js-comments-content" class="pt-5">
                {% for comment in comments %}
-               <div class="comment d-flex justify-content-center align-items-center" id="js-comment" data-aos="flip-left">
+               <div class="comment d-flex justify-content-left align-items-center" id="js-comment" data-aos="flip-left">
                   <span class="user-avatar m-3"><img
                         src="{{ asset('uploads/avatar/') }}{{ comment.user.avatar }}"
                         alt=""></span>

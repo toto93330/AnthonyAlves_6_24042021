@@ -42,7 +42,7 @@ class Comment
     /**
      * @ORM\Column(type="boolean")
      */
-    private $deactived;
+    private $actived;
 
     public function getId(): ?int
     {
@@ -97,14 +97,14 @@ class Comment
         return $this;
     }
 
-    public function getDeactived(): ?bool
+    public function getActived(): ?bool
     {
-        return $this->deactived;
+        return $this->actived;
     }
 
-    public function setDeactived(bool $deactived): self
+    public function setActived(bool $actived): self
     {
-        $this->deactived = $deactived;
+        $this->actived = $actived;
 
         return $this;
     }

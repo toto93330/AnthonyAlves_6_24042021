@@ -5,6 +5,8 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\User;
 use App\Entity\ForgotPassword;
+use App\Form\ForgotPasswordType;
+use Symfony\Component\Form\Form;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,41 +76,54 @@ class ForgotPasswordController extends AbstractController
      * VERIF TOKEN FOR FORGOT PASSWORD (ROLES [ALL])
      * @Route("/forgot-password/token/{token}", name="forgot_password_update")
      */
-    public function update($token, UserPasswordEncoderInterface $encoder)
+    public function update($token, UserPasswordEncoderInterface $encoder, Request $request)
     {
         $token = $this->entityManager->getRepository(ForgotPassword::class)->findOneBy(['token' => $token]);
 
         if ($token) {
-            $user = $this->entityManager->getRepository(User::class)->findOneBy(['id' => $token->getUser()]);
 
-            //1. Verif expiration date
-            $now = new \DateTime();
+            $form = $this->createForm(ForgotPasswordType::class);;
+            $form->handleRequest($request);
 
-            if ($token->getCreatedDate()->modify('+ 24 hour') < $now) {
+            if ($form->isSubmitted() && $form->isValid()) {
+
+
+                $user = $this->entityManager->getRepository(User::class)->findOneBy(['id' => $token->getUser()]);
+                //1. Verif expiration date
+                $now = new \DateTime();
+
+                if ($token->getCreatedAt()->modify('+ 24 hour') < $now) {
+                    $this->entityManager->remove($token);
+                    $this->entityManager->flush();
+                    $this->addFlash('notify_error', 'your token is expired!');
+                    return $this->redirectToRoute('forgot_password');
+                }
+                //2. Generate new password and update database 
+                $password = $form->getData()->getPassword();
+                $newpassword = $encoder->encodePassword($user, $password);
+                $user->setPassword($newpassword);
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+                //3. DELECT TOKEN
                 $this->entityManager->remove($token);
                 $this->entityManager->flush();
-                $this->addFlash('notify_error', 'your token is expired!');
-                return $this->redirectToRoute('forgot_password');
+                //4. Set session variable
+                $this->session->set('user-email', $user->getEmail());
+                $this->session->set('user-newpassword', $password);
+                $this->session->set('user-firstname', $user->getFirstname());
+                //5. notify success
+                $this->addFlash('notify', 'An email as been sended with your new password!');
+                //6. Send email
+                return $this->redirectToRoute('mail-new-password');
             }
-            //2. Generate new password and update database 
-            $password = uniqid();
-            $newpassword = $encoder->encodePassword($user, $password);
-            $user->setPassword($newpassword);
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();
-            //3. DELECT TOKEN
-            $this->entityManager->remove($token);
-            $this->entityManager->flush();
-            //4. Set session variable
-            $this->session->set('user-email', $user->getEmail());
-            $this->session->set('user-newpassword', $password);
-            $this->session->set('user-firstname', $user->getFirstname());
-            //5. notify success
-            $this->addFlash('notify', 'An email as been sended with your new password!');
-            //6. Send email
-            return $this->redirectToRoute('mail-new-password');
+
+            //RETURN VIEW
+            return $this->render('forgot_password/newpassword.html.twig', [
+                'form' => $form->createView(),
+            ]);
         } else {
             $this->addFlash('notify_error', 'Your token dont exist!');
+            return $this->redirectToRoute('forgot_password');
         }
     }
 }

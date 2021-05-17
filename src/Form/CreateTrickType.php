@@ -12,26 +12,29 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\ChoiceList\Loader\CallbackChoiceLoader;
 
-class AdminTrickType extends AbstractType
+class CreateTrickType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title', TextType::class, [
+                'required' => true,
                 'attr' => [
                     'class' => 'admin-title',
                     'style' => 'font-size: 1em;'
                 ]
             ])
             ->add('image_card', FileType::class, [
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'class' => 'd-none',
                     'onchange' => 'handleFiles(files)',
                 ],
             ])
             ->add('content', TextareaType::class, [
+                'required' => true,
                 'attr' => [
                     'cols' => '30',
                     'rows' => '10'

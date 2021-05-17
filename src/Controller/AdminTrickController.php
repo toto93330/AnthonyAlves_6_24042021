@@ -8,6 +8,7 @@ use App\Entity\Video;
 use App\Entity\Category;
 use App\Entity\Contributor;
 use App\Form\AdminTrickType;
+use App\Form\CreateTrickType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -200,6 +201,114 @@ class AdminTrickController extends AbstractController
             'videos' => $videos,
             'images' => $images,
             'categorys' => $category,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * CREATE TRICKS (ROLES [USER])
+     * @Route("/add-new-trick", name="add-new-trick")
+     */
+    public function createTrick(Request $request): Response
+    {
+        //1.INIT FORM
+
+        $trick = new Trick();
+        $form = $this->createForm(CreateTrickType::class, $trick);
+        $form->handleRequest($request);
+
+        //2. VERIF FORM IS VALID AND IS SUBMITTED FOR CREATE TRICK
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // VERIF IF TITLE ALREADY EXIST
+            $slugger = new AsciiSlugger();
+            $slug = $slugger->slug($form->getData()->getTitle());
+            $slugverif = $this->entityManager->getRepository(Trick::class)->findBy(['slug' => $slug]);
+            if ($slugverif) {
+                $this->addFlash('notify_error', 'This trick name, allready exist!');
+                return $this->redirectToRoute('add-new-trick');
+            }
+            $trick->setTitle($form->getData()->getTitle());
+            $trick->setSlug($slug);
+
+            // AUTHOR 
+            $trick->setAuthor($this->getUser());
+
+            // UPLOAD IMAGE CARD
+            $file = $form->get('image_card')->getData();
+
+            $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('tricks_directory'), $fileName);
+            $trick->setImageCard($fileName);
+
+            // CONTENT
+            $trick->setContent($form->getData()->getContent());
+
+            //CATEGORY
+            if (!$form->getData()->getCategory()) {
+                $this->addFlash('notify_error', 'please, select an category!');
+                return $this->redirectToRoute('add-new-trick');
+            }
+            $trick->setCategory($form->getData()->getCategory());
+
+            //DATE
+            $today = new \DateTime('NOW');
+            $trick->setCreatedAt($today);
+
+            //IS EDITED
+            $trick->setEdited(0);
+            $this->entityManager->persist($trick);
+            $this->entityManager->flush();
+
+            //TAKE TRICK FOR ADD MEDIA
+            $trick = $this->entityManager->getRepository(Trick::class)->findBy(['slug' => $trick->getSlug()]);
+
+            //IMAGE
+
+            if ($form->get('images')->getData()) {
+                $image = $form->get('images')->getData();
+
+                for ($i = 0; $i < count($image); $i++) {
+
+                    $images = new Image();
+
+                    $file = $form->get('images')->getData()[$i];
+
+                    $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                    $file->move($this->getParameter('images_directory'), $fileName);
+
+                    $images->setTrick($trick[0]);
+                    $images->setUser($this->getUser());
+                    $images->setContent($fileName);
+
+                    $this->entityManager->persist($images);
+                    $this->entityManager->flush();
+                }
+            }
+
+            //VIDEOS
+
+            if ($form->get('videos')->getData()) {
+                $image = $form->get('videos')->getData();
+
+                for ($i = 0; $i < count($image); $i++) {
+
+                    $videos = new Video();
+
+                    $videos->setUser($this->getUser());
+                    $videos->setTrick($trick[0]);
+                    $videos->setEmbed($image[$i]->getEmbed());
+
+                    $this->entityManager->persist($videos);
+                    $this->entityManager->flush();
+                }
+            }
+
+            //RETURN TO HOME AND SEND SUCCESS
+            $this->addFlash('notify', $trick[0]->getTitle() . ', is Created!');
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('admin_trick/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }

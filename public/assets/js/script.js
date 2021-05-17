@@ -4,6 +4,7 @@
 
 /* RENDER IMAGE ON UPLOAD */
 function handleFiles(files) {
+  console.log("hello");
   var imageType = /^image\//;
   for (var i = 0; i < files.length; i++) {
     var file = files[i];

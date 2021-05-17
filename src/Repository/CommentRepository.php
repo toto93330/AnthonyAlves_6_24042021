@@ -25,7 +25,7 @@ class CommentRepository extends ServiceEntityRepository
     public function findByMaxResult($maxresult, $trick)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.trick = :val', 'c.deactived = 0')
+            ->andWhere('c.trick = :val', 'c.actived = 1')
             ->setParameter('val', $trick)
             ->orderBy('c.created_at', 'DESC')
             ->setMaxResults($maxresult)

@@ -63,7 +63,7 @@ class TrickController extends AbstractController
             $comment->setUser($this->getUser());
             $comment->setTrick($trick[0]);
             $comment->setCreatedAt($today);
-            $comment->setDeactived(0);
+            $comment->setActived(0);
 
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
@@ -76,7 +76,7 @@ class TrickController extends AbstractController
         //5.TAKE COMMENT
         $maxresult = 5;
         $comments = $this->entityManager->getRepository(Comment::class)->findByMaxResult($maxresult, $trick[0]);
-        $numberofcomments = count($this->entityManager->getRepository(Comment::class)->findBy(['trick' => $trick, 'deactived' => 0]));
+        $numberofcomments = count($this->entityManager->getRepository(Comment::class)->findBy(['trick' => $trick, 'actived' => 1]));
 
         return $this->render('trick/index.html.twig', [
             'tricks' => $trick,

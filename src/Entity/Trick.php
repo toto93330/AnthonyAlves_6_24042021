@@ -57,7 +57,7 @@ class Trick
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Contributor::class, mappedBy="trick")
+     * @ORM\OneToMany(targetEntity=Contributor::class, mappedBy="trick", cascade={"remove"})
      */
     private $contributors;
 
@@ -77,12 +77,12 @@ class Trick
     private $last_editor_id;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick")
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", cascade={"remove"})
      */
     private $videos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick")
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade={"remove"})
      */
     private $images;
 

@@ -42,5 +42,6 @@ security:
         - { path: ^/admin/trick/, roles: ROLE_USER }
         - { path: ^/tricks/detail/, roles: ROLE_USER }
         - { path: ^/medias/type/, roles: ROLE_USER }
+        - { path: ^/add-new-trick, roles: ROLE_USER }
         # ROLE_ADMIN
         - { path: ^/admin, roles: ROLE_ADMIN }

@@ -34,7 +34,7 @@
          <li class="nav-item"><a href="{{ path('register') }}" class="nav-link fw-bold">Sign up</a></li>
          {% else %}
          <li class="nav-item"><a href="{{ path('profile') }}" class="nav-link fw-bold">Profile</a></li>
-         <li class="nav-item"><a href="{{ path('profile') }}" class="nav-link fw-bold">Add new trick</a></li>
+         <li class="nav-item"><a href="{{ path('add-new-trick') }}" class="nav-link fw-bold">Add new trick</a></li>
          <li class="nav-item"><a href="{{ path('app_logout') }}" class="nav-link fw-bold">Log out</a></li>
          {% endif %}
       </ul>
@@ -96,7 +96,7 @@
                <li><a href="{{ path('register') }}">Sign up</a></li>
                {% else %}
                <li><a href="{{ path('profile') }}">Profile</a></li>
-               <li><a href="{{ path('profile') }}">Add new trick</a></li>
+               <li><a href="{{ path('add-new-trick') }}">Add new trick</a></li>
                <li><a href="{{ path('app_logout') }}">Log out</a></li>
                {% endif %}
             </ul>
