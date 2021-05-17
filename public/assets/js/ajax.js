@@ -145,9 +145,9 @@ function onClickMoreComments() {
         console.log(date)
 
         y.innerHTML += '<div class="comment d-flex justify-content-left align-items-center" id="js-comment" data-aos="flip-left">' +
-          '<span class="user-avatar m-3"><img ' +
-          'src="/uploads/avatar/' + data[i].user.avatar + '"' +
-          'alt=""></span>' +
+          '<span class="user-avatar m-3">'+
+          '<img src="/uploads/avatar/' + data[i].user.avatar + '" alt="">' +
+          '</span>' +
           '<span class="user-comment m-3">' + data[i].content + '<br><span' +
           'class="comment-info"> Created by ' + data[i].user.firstname + ' on ' + date.toLocaleDateString() + '</span>' +
           '</span>' +
