@@ -64,13 +64,6 @@ class HomeController extends AbstractController
             }
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 2_finish_entity
-=======
->>>>>>> 1_make_uml
         // For instance, return a Response with encoded Json
         return new Response($jsonObject, 200, ['Content-Type' => 'application/json']);
     }
