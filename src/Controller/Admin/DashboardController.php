@@ -11,6 +11,7 @@ use App\Entity\Category;
 use App\Entity\ValidateUser;
 use App\Entity\ForgotPassword;
 use App\Controller\Admin\TrickCrudController;
+use App\Entity\Page;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -49,6 +50,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Medias Utility', 'fas fa-photo-video');
         yield MenuItem::linkToCrud('Images', '', Image::class);
         yield MenuItem::linkToCrud('Videos', '', Video::class);
+        yield MenuItem::section('Pages Utility', 'fas fa-pen');
+        yield MenuItem::linkToCrud('Pages', '', Page::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

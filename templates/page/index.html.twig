@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PageController!{% endblock %}
+
+{% block content %}
+<div id="tricks-fix">
+      <img class="background-tricks-image"
+         src="{{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}"
+         style="background-size: cover; position:absolute;" alt="">
+      <section id="tricks-section">
+         <div class="content-tricks bg-light">
+            <div class="bg-light">
+               <div class="tricks-header"
+                  style="background-image: url({{ asset('assets/img/maurienne-depuis-val-thorens-bisc-gudellaphoto-fotolia.com_.jpg') }}); background-size: cover;">
+                  <div class="tricks-title w-100 h-100 d-flex justify-content-center">
+                     <span class="align-self-center h1 fw-bold text-light"
+                        style="text-shadow: 1px 1px 2px white, 0 0 1em rgb(15, 146, 207), 0 0 0.2em black; font-size:3em">{{title}}</span>
+                  </div>
+               </div>
+               
+               <hr style="background-color: grey;">
+               <article class='trick-article-content'>
+                  {{ content|raw }}
+                </article>
+      </section>
+   </div>
+{% endblock %}

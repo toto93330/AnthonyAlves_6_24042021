@@ -46,7 +46,7 @@ class UserFixture extends Fixture
             ]
         ];
 
-        foreach ($user as $key => $value) {
+        foreach ($user as $value) {
             $user = new User();
             $today = new \DateTime('NOW');
             $user->setEmail($value['email']);
