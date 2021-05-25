@@ -33,11 +33,13 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Admin Panel Snowtricks.com');
+            ->setTitle('<a href="/">Admin Panel Snowtricks.com</a>');
     }
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::section('Fast navigation', 'fas fa-igloo');
+        yield MenuItem::linkToUrl('Home', null, '/');
         yield MenuItem::section('Users Utility', 'fas fa-users');
         yield MenuItem::linkToCrud('Users', '', User::class);
         yield MenuItem::linkToCrud('Forgot Password Tokens', '', ForgotPassword::class);
