@@ -1,5 +1,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5dad21e71c4c49ee9a6a4637133f7e0d)](https://www.codacy.com/gh/toto93330/AnthonyAlves_6_24042021/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=toto93330/AnthonyAlves_6_24042021&amp;utm_campaign=Badge_Grade)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/toto93330/anthonyalves_6_24042021/badge)](https://www.codefactor.io/repository/github/toto93330/anthonyalves_6_24042021)
+
 ## CONTEXT : 
 
 Jimmy Sweat est un entrepreneur ambitieux passionné de snowboard. Son objectif est la création d'un site collaboratif pour faire connaître ce sport auprès du grand public et aider à l'apprentissage des figures (tricks).
