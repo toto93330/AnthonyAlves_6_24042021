@@ -25,7 +25,7 @@ class CommentCrudController extends AbstractCrudController
             AssociationField::new('trick'),
             DateField::new('created_at'),
             TextEditorField::new('content'),
-            BooleanField::new('deactived'),
+            BooleanField::new('actived'),
         ];
     }
 }

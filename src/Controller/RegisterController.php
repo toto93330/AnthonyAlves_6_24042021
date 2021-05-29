@@ -46,6 +46,8 @@ class RegisterController extends AbstractController
 
             $user = $form->getData();
 
+            $userpassword = $form->getData()->getPassword();
+
             //1. Rename and Upload avatar
             $file = $user->getAvatar();
             $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
@@ -82,7 +84,7 @@ class RegisterController extends AbstractController
 
             //8. Set Variable on session for send email
             $this->session->set('user-email', $user->getEmail());
-            $this->session->set('user-password', $password);
+            $this->session->set('user-password', $userpassword);
             $this->session->set('user-firstname', $user->getFirstname());
             $this->session->set('user-token', 'https://' . $_SERVER['HTTP_HOST'] . '/validate/account/token/' . $validate->getToken());
 
