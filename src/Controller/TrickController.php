@@ -55,7 +55,6 @@ class TrickController extends AbstractController
         $videos = $this->entityManager->getRepository(Video::class)->findBy(array('trick' => $trick));
         $images = $this->entityManager->getRepository(Image::class)->findBy(array('trick' => $trick));
 
-
         //4.ADD NEW COMMENT
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);

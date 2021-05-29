@@ -84,11 +84,11 @@
             <div id="upload-video">
                <h2 class="mb-3">Add videos</h2>
                <div class="d-flex justify-content-center flex-column flex-wrap w-100">
-                  <button type="button" id="add-video" onclick="onClickAddElementVideo()" class="btn"
+                  <button type="button" id="add-video" onclick="onClickAddElement()" class="btn"
                      class="text-center"> Add video </button>
 
-                  <div id="admin_trick_videos"
-                     data-prototype="<fieldset class=&quot;form-group&quot;><div id=&quot;admin_trick_videos___name__&quot;><div class=&quot;form-group&quot;><label for=&quot;admin_trick_videos___name___embed&quot;>Embed</label><textarea id=&quot;admin_trick_videos___name___embed&quot; name=&quot;admin_trick[videos][__name__][embed]&quot; class=&quot;form-control&quot;></textarea></div></div></fieldset>">
+                  <div id="create_trick_videos"
+                     data-prototype="<fieldset class=&quot;form-group&quot;><div id=&quot;create_trick_videos___name__&quot;><div class=&quot;form-group&quot;><label for=&quot;create_trick_videos___name___embed&quot;>Embed</label><textarea id=&quot;create_trick_videos___name___embed&quot; name=&quot;create_trick[videos][__name__][embed]&quot; class=&quot;form-control&quot;></textarea></div></div></fieldset>">
                   </div>
 
                </div>
@@ -106,6 +106,7 @@
 <!-- END SECTION ADMIN TRICK -->
 
 {{ form_end(form, {render_rest:false}) }}
+
 {% endblock %}
 
 

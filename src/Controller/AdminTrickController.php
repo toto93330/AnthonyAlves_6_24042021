@@ -5,11 +5,14 @@ namespace App\Controller;
 use App\Entity\Image;
 use App\Entity\Trick;
 use App\Entity\Video;
+use App\Form\VideoType;
 use App\Entity\Category;
 use App\Entity\Contributor;
+use App\Entity\User;
 use App\Form\AdminTrickType;
 use App\Form\CreateTrickType;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -64,7 +67,6 @@ class AdminTrickController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $modify = false;
-
             //IF IMAGES NOT EMPTY
             if (!empty($form->get('images')->getData())) {
 
@@ -217,8 +219,10 @@ class AdminTrickController extends AbstractController
         $form = $this->createForm(CreateTrickType::class, $trick);
         $form->handleRequest($request);
 
+
         //2. VERIF FORM IS VALID AND IS SUBMITTED FOR CREATE TRICK
         if ($form->isSubmitted() && $form->isValid()) {
+
 
             // VERIF IF TITLE ALREADY EXIST
             $slugger = new AsciiSlugger();
@@ -263,6 +267,22 @@ class AdminTrickController extends AbstractController
             //TAKE TRICK FOR ADD MEDIA
             $trick = $this->entityManager->getRepository(Trick::class)->findBy(['slug' => $trick->getSlug()]);
 
+
+            //VIDEOS
+
+
+            if ($form->get('videos')->getData()) {
+
+                for ($i = 0; $i < count($form->get('videos')->getData()); $i++) {
+                    $videos = new Video();
+                    $videos->setTrick($trick[0]);
+                    $videos->setUser($this->getUser());
+                    $videos->setEmbed($form->get('videos')->getData()[$i]->getEmbed());
+                    $this->entityManager->persist($videos);
+                    $this->entityManager->flush();
+                }
+            }
+
             //IMAGE
 
             if ($form->get('images')->getData()) {
@@ -282,24 +302,6 @@ class AdminTrickController extends AbstractController
                     $images->setContent($fileName);
 
                     $this->entityManager->persist($images);
-                    $this->entityManager->flush();
-                }
-            }
-
-            //VIDEOS
-
-            if ($form->get('videos')->getData()) {
-                $image = $form->get('videos')->getData();
-
-                for ($i = 0; $i < count($image); $i++) {
-
-                    $videos = new Video();
-
-                    $videos->setUser($this->getUser());
-                    $videos->setTrick($trick[0]);
-                    $videos->setEmbed($image[$i]->getEmbed());
-
-                    $this->entityManager->persist($videos);
                     $this->entityManager->flush();
                 }
             }

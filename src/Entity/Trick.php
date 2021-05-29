@@ -77,11 +77,6 @@ class Trick
     private $last_editor_id;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", cascade={"remove"})
-     */
-    private $videos;
-
-    /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade={"remove"})
      */
     private $images;

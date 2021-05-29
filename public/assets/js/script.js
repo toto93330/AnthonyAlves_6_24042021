@@ -40,6 +40,14 @@ function onClickAddElementVideo() {
   idvideo++;
 }
 
+function onClickAddElement() {
+  var x = document.getElementById('create_trick_videos');
+  var y = x.dataset.prototype.replace(/__name__/g,idvideo)
+  var fildset = "<span id='video-item-"+ idvideo +"'>" + y + "<button type='button' onclick='onClickRemoveElementVideo("+ idvideo +")' class='btn my-3'>Remove</button></span>";
+  x.innerHTML += fildset;
+  idvideo++;
+}
+
 function onClickRemoveElementVideo(i) {
   var x = document.getElementById('video-item-'+ i);
   x.remove();
