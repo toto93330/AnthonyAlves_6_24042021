@@ -12,6 +12,7 @@ use App\Form\CommentType;
 use App\Entity\Contributor;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Egulias\EmailValidator\Validation\Exception\EmptyValidationList;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,6 +40,11 @@ class TrickController extends AbstractController
     {
         //1. TAKE TRICK
         $trick = $this->entityManager->getRepository(Trick::class)->findBy(array('slug' => $slug));
+
+        if (empty($trick)) {
+            $this->addFlash('notify_error', 'This tricks, dont exist!');
+            return $this->redirectToRoute('home');
+        }
 
         //2. TAKE CONTRIBUTOR
         $contributors = $this->entityManager->getRepository(Contributor::class)->findBy(array('trick' => $trick));

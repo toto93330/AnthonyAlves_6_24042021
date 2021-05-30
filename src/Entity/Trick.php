@@ -81,6 +81,11 @@ class Trick
      */
     private $images;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick",  cascade={"persist", "remove"})
+     */
+    private $videos;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();

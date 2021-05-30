@@ -48,6 +48,7 @@ class AdminTrickController extends AbstractController
         }
 
         $videos = $this->entityManager->getRepository(Video::class)->findBy(array('trick' => $tricks));
+
         $images = $this->entityManager->getRepository(Image::class)->findBy(array('trick' => $tricks));
 
         $category = $this->entityManager->getRepository(Category::class)->findAll();
@@ -146,6 +147,7 @@ class AdminTrickController extends AbstractController
             }
 
             //IF VIDEO NOT EMPTY
+
             if (!empty($form->getVideos())) {
 
                 for ($i = 0; $i < count($form->getVideos()); $i++) {
@@ -279,6 +281,12 @@ class AdminTrickController extends AbstractController
                     $videos->setUser($this->getUser());
                     $videos->setEmbed($form->get('videos')->getData()[$i]->getEmbed());
                     $this->entityManager->persist($videos);
+                    $this->entityManager->flush();
+                }
+
+                $fixdoc = $this->entityManager->getRepository(Video::class)->findby(['user' => null]);
+                for ($i = 0; $i < count($fixdoc); $i++) {
+                    $this->entityManager->remove($fixdoc[$i]);
                     $this->entityManager->flush();
                 }
             }
